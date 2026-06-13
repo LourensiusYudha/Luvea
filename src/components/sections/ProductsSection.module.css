@@ -1,0 +1,58 @@
+.section {
+  padding: 80px 20px 60px;
+  background: var(--off-white);
+}
+.bestBadge {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--pink-500);
+  padding: 6px 18px;
+  margin: 0 auto 20px;
+  width: fit-content;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 400px;
+  margin: 0 auto 32px;
+}
+.scarcity {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--white);
+  border: 1px solid var(--pink-100);
+  border-radius: 0px;
+  padding: 12px 16px;
+  max-width: 480px; margin: 0 auto;
+  font-size: .83rem; color: var(--mid);
+}
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--pink-500); flex-shrink: 0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(230,0,18,.4); }
+  50% { box-shadow: 0 0 0 6px rgba(230,0,18,0); }
+}
+.scarcity strong { color: var(--pink-500); }
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 760px;
+  }
+}
+@media (min-width: 900px) {
+  .section { padding: 100px 48px 80px; }
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1060px;
+    align-items: end;
+  }
+}

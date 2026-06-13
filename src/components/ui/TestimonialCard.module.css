@@ -1,0 +1,45 @@
+.card {
+  flex: 0 0 auto;
+  width: calc(100vw - 56px);
+  max-width: 340px;
+  background: #fff;
+  border-radius: 0px;
+  padding: 22px;
+  box-shadow: none;
+  border: 1px solid var(--pink-100);
+  display: flex; flex-direction: column; gap: 10px;
+  scroll-snap-align: center;
+}
+.top {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.starsFull { color: #FAAD14; letter-spacing: 1px; font-size: .95rem; }
+.stars4 { color: #FAAD14; font-size: .95rem; }
+.starEmpty { color: #ddd; }
+.verified {
+  font-size: .7rem; font-weight: 600; color: var(--dark);
+  background: var(--pink-100); padding: 3px 10px; border-radius: 0px;
+}
+.quote {
+  font-size: .9rem; color: var(--dark); line-height: 1.65; font-style: normal;
+}
+.variant {
+  font-size: .72rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--pink-500);
+}
+.footer {
+  display: flex; align-items: center; gap: 10px;
+}
+.avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.footer strong { display: block; font-size: .86rem; color: var(--dark); }
+.footer span { font-size: .74rem; color: var(--light); }
+.helpful {
+  font-size: .74rem; color: var(--light);
+  padding-top: 8px; border-top: 1px solid var(--pink-100);
+}

@@ -1,0 +1,13 @@
+.swatches { display: flex; gap: 10px; margin-bottom: 14px; }
+.swatch {
+  display: block;
+  width: 28px; height: 28px; border-radius: 0px;
+  cursor: pointer;
+  border: 2px solid var(--pink-100);
+  transition: border-color .2s;
+}
+.active, .swatch:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--pink-500);
+}

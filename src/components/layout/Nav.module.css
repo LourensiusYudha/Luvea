@@ -1,0 +1,121 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: var(--nav-h);
+  background: var(--white);
+  border-bottom: 1px solid var(--pink-100);
+  /* Removed backdrop-filter and box-shadow for a flat Uniqlo look */
+}
+
+.scrolled { 
+  /* Keeping a subtle border bottom on scroll if desired, or can remove entirely */
+  border-bottom: 1px solid var(--pink-200);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 40px;
+  background: none;
+  padding: 0;
+}
+.logo img {
+  display: block;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.links {
+  display: none;
+  gap: 32px;
+}
+.links a {
+  font-size: .8rem; font-weight: 700; /* Bold for Uniqlo style */
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--dark); /* Black for navigation links */
+  transition: color .2s;
+}
+.links a:hover { color: var(--pink-500); /* Uniqlo red on hover */}
+
+.cta {
+  display: none;
+  font-size: .78rem; font-weight: 700; /* Bold for Uniqlo style */
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 10px 22px;
+  background: var(--dark); /* Black CTA button */
+  color: #fff;
+  border-radius: 0px; /* Sharp corners */
+  box-shadow: none; /* No shadow */
+  transition: background .2s;
+}
+.cta:hover { background: var(--mid); /* Darker black on hover */ transform: none; /* No transform */}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+.burger span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--dark);
+  border-radius: 0px;
+  transition: all .25s;
+}
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.drawer {
+  position: fixed;
+  top: var(--nav-h);
+  right: 0; bottom: 0;
+  width: min(280px, 80vw);
+  background: var(--white);
+  z-index: 199;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transform: translateX(110%);
+  transition: transform .3s cubic-bezier(.4,0,.2,1);
+  box-shadow: -4px 0 20px rgba(0,0,0,.1); /* Retained a subtle shadow for drawer */
+}
+.drawer.open { transform: translateX(0); }
+.drawer ul { display: flex; flex-direction: column; gap: 4px; }
+.drawerLink {
+  display: block;
+  padding: 14px 16px;
+  font-size: .95rem; font-weight: 500;
+  color: var(--dark);
+  border-radius: 0px; /* Sharp corners */
+  transition: background .2s, color .2s;
+}
+.drawerLink:hover { background: var(--pink-100); color: var(--pink-500); }
+
+.overlay {
+  position: fixed; inset: 0; z-index: 198;
+  background: rgba(0,0,0,.4);
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s;
+}
+.overlay.open { opacity: 1; pointer-events: all; }
+
+.drawerCta { margin-top: 12px; text-align: center; }
+
+@media (min-width: 900px) {
+  .nav { padding: 0 52px; }
+  .links { display: flex; }
+  .cta  { display: block; }
+  .burger { display: none; }
+}

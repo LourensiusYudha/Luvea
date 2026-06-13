@@ -1,0 +1,53 @@
+.section {
+  padding: 80px 20px;
+  background: var(--off-white);
+}
+.inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0px;
+  box-shadow: none;
+  margin: 28px 0 32px;
+}
+.table {
+  width: 100%;
+  min-width: 380px;
+  border-collapse: collapse;
+  background: var(--white);
+  font-size: .9rem;
+  border: 1px solid var(--pink-100);
+}
+.table th,
+.table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--pink-100);
+}
+.table thead th {
+  font-weight: 700;
+  font-size: .88rem;
+  background: var(--off-white);
+  color: var(--dark);
+}
+.colBiasa {
+  color: var(--mid);
+  background: var(--off-white);
+}
+.colLuvea {
+  background: var(--white);
+  color: var(--dark);
+  font-weight: 700;
+}
+.table thead .colLuvea {
+  color: var(--pink-500);
+}
+.table tbody tr:last-child td { border-bottom: none; }
+.table tbody tr:hover td { background: var(--pink-100); }
+
+@media (min-width: 900px) {
+  .section { padding: 100px 48px; }
+}
