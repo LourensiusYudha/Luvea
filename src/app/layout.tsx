@@ -12,7 +12,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: 'Luvea | Piyama Premium',
   description:
-    'Piyama Luvea — Bahan cotton-rayon premium, adem, lembut, dan aesthetic. Tersedia di Shopee, TikTok Shop, dan WhatsApp.',
+    'Piyama Luvea — Bahan Rayon Premium Grade A premium, adem, lembut, dan aesthetic. Tersedia di Shopee, TikTok Shop, dan WhatsApp.',
   icons: { icon: '/images/Luvea.ico' },
 };
 

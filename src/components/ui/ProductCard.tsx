@@ -46,7 +46,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <span className={styles.ori}>{formatPrice(product.originalPrice)}</span>
           <span className={styles.disc}>{getDiscount(product.originalPrice, product.price)}</span>
         </div>
-        <div className={styles.material}>🌿 Cotton-Rayon Premium</div>
+        <div className={styles.material}>🌿 Rayon Premium Grade A</div>
         {product.featured && <CountdownTimer />}
         <SwatchSelector swatches={product.swatches} />
         <a

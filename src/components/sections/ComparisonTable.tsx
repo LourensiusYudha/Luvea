@@ -1,7 +1,7 @@
 import styles from './ComparisonTable.module.css';
 
 const rows = [
-  { feature: 'Bahan', biasa: '✗ Polyester panas', luvea: '✓ Cotton Rayon adem' },
+  { feature: 'Bahan', biasa: '✗ Polyester panas', luvea: '✓ Rayon Premium Grade A adem' },
   { feature: 'Kenyamanan', biasa: '✗ Gerah & lengket', luvea: '✓ Breathable & sejuk' },
   { feature: 'Jahitan', biasa: '✗ Standar biasa', luvea: '✓ 4-benang premium' },
   { feature: 'Tampilan', biasa: '✗ Polos & biasa', luvea: '✓ Aesthetic & cute' },

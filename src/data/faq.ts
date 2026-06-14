@@ -8,7 +8,7 @@ export const faqItems: FaqItem[] = [
   {
     id: 1,
     question: 'Apakah bahan piyama ini luntur?',
-    answer: 'Tidak. Bahan cotton rayon Luvea sudah melalui proses washing sehingga warna lebih stabil dan tidak mudah luntur walau dicuci berkali-kali.',
+    answer: 'Tidak. Bahan Rayon Premium Grade A Luvea sudah melalui proses washing sehingga warna lebih stabil dan tidak mudah luntur walau dicuci berkali-kali.',
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const faqItems: FaqItem[] = [
   {
     id: 4,
     question: 'Apakah bahannya panas?',
-    answer: 'Tidak. Bahan cotton rayon terkenal adem dan breathable sehingga sangat nyaman dipakai tidur, bahkan di malam yang panas sekalipun.',
+    answer: 'Tidak. Bahan Rayon Premium Grade A terkenal adem dan breathable sehingga sangat nyaman dipakai tidur, bahkan di malam yang panas sekalipun.',
   },
   {
     id: 5,

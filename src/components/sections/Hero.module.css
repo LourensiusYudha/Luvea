@@ -36,18 +36,34 @@
   font-size: clamp(.9rem, 2.5vw, 1.05rem);
   line-height: 1.7; color: var(--mid);
   margin-bottom: 24px;
+  text-align: justify;
 }
 .badges {
-  display: flex; flex-wrap: wrap; gap: 8px;
+  display: flex; flex-wrap: nowrap; gap: 6px;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
+}
+@media (max-width: 400px) {
+  .badges { flex-wrap: wrap; gap: 4px; }
+}
+.priceTag {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--mid);
+  margin-bottom: 16px;
+  text-align: center;
+}
+.priceTag strong {
+  color: var(--pink-500);
+  font-size: 1.3rem;
 }
 .microBadge {
-  font-size: .78rem; font-weight: 500;
+  font-size: .7rem; font-weight: 600;
   color: var(--dark);
   background: var(--white);
   border: 1px solid var(--pink-100);
-  padding: 6px 13px; border-radius: 0px;
+  padding: 5px 10px; border-radius: 0px;
+  white-space: nowrap;
 }
 .ctas {
   display: flex; gap: 12px;
@@ -69,11 +85,12 @@
 .heroTiktok {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 14px 24px;
+  padding: 14px 28px;
   border-radius: 0px;
   font-family: var(--font-body);
-  font-size: .85rem;
+  font-size: .86rem;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -91,9 +108,6 @@
   box-shadow: none;
 }
 
-.ctas a.btn--xl {
-  width: auto;
-}
 @media (max-width: 480px) {
   .ctas a {
     width: 100%;
@@ -108,10 +122,13 @@
 .av {
   width: 30px; height: 30px; border-radius: 50%;
   border: 2px solid #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .75rem; font-weight: 700;
+  overflow: hidden;
   margin-left: -8px;
-  color: var(--dark);
+  flex-shrink: 0;
+}
+.av img {
+  width: 100%; height: 100%;
+  object-fit: cover;
 }
 .av:first-child { margin-left: 0; }
 .proofText {
@@ -151,5 +168,6 @@
   .badges  { justify-content: flex-start; }
   .ctas    { justify-content: flex-start; }
   .proof   { justify-content: flex-start; }
+  .priceTag { text-align: left; }
   .visual { max-width: 420px; flex-shrink: 0; }
 }

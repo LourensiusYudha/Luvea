@@ -26,7 +26,7 @@ export default function ProblemAwareness() {
         </div>
         <div className={`${styles.solution} reveal-up`}>
           <span className={styles.solutionIcon}>✨</span>
-          <p><strong>Luvea hadir dengan bahan cotton rayon premium</strong> yang adem, lembut, breathable, dan tetap terlihat cantik dipakai di rumah.</p>
+          <p><strong>Luvea hadir dengan bahan Rayon Premium Grade A</strong> yang adem, lembut, breathable, dan tetap terlihat cantik dipakai di rumah.</p>
         </div>
       </div>
     </section>
