@@ -71,9 +71,9 @@
 }
 
 .btn {
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
   width: 100%; padding: 14px;
-  background: var(--dark);
+  background: #EE4D2D;
   color: #fff; border-radius: 0px;
   font-size: .85rem; font-weight: 700; letter-spacing: .08em;
   text-transform: uppercase;
@@ -83,7 +83,7 @@
 .btn:hover {
   transform: none;
   box-shadow: none;
-  background: var(--mid);
+  background: #d73d1e;
 }
 .btnFeatured{
   background: var(--pink-500);

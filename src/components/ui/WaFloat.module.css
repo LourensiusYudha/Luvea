@@ -11,5 +11,10 @@
 .waFloat:hover { transform: none; box-shadow: none; filter: brightness(0.9); }
 
 @media (max-width: 639px) {
-  .waFloat { bottom: 76px; right: 16px; }
+  .waFloat {
+    bottom: 76px; right: 16px;
+    padding: 10px;
+    border-radius: 50%;
+  }
+  .waFloat span { display: none; }
 }

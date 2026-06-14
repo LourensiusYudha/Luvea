@@ -55,6 +55,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           rel="noopener"
           className={`${styles.btn} ${product.featured ? styles.btnFeatured : ''}`}
         >
+          <Image src="/images/shopee.png" alt="" width={18} height={18} />
           {product.featured ? 'Ambil Promo Sekarang →' : 'Beli di Shopee →'}
         </a>
         <div className={styles.altChannels}>
