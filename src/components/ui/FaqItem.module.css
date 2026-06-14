@@ -32,7 +32,7 @@
   padding: 0 20px;
 }
 .open .a {
-  max-height: 200px;
+  max-height: 600px;
   padding: 0 20px 18px;
 }
 .a p {
@@ -40,4 +40,5 @@
   color: var(--mid);
   line-height: 1.65;
   margin: 0;
+  white-space: pre-line;
 }
