@@ -1,8 +1,4 @@
-'use client';
-
 import { testimonials } from '@/data/testimonials';
-import { useCarousel } from '@/hooks/useCarousel';
-import { useScrollReveal } from '@/hooks/useScrollReveal';
 import Nav from '@/components/layout/Nav';
 import Hero from '@/components/sections/Hero';
 import ProblemAwareness from '@/components/sections/ProblemAwareness';
@@ -18,31 +14,24 @@ import Footer from '@/components/sections/Footer';
 import StickyCta from '@/components/sections/StickyCta';
 import SocialProofPopup from '@/components/ui/SocialProofPopup';
 import WaFloat from '@/components/ui/WaFloat';
+import ScrollRevealWrapper from '@/components/ui/ScrollRevealWrapper';
 
 export default function Home() {
-  const { trackRef, currentIndex, goTo } = useCarousel(testimonials.length, 2000);
-  const revealRef = useScrollReveal();
-
   return (
     <>
       <BannerStrip />
       <Nav />
-      <div ref={revealRef}>
+      <ScrollRevealWrapper>
         <Hero />
         <ProblemAwareness />
         <ProductsSection />
-        <Testimonials
-          testimonials={testimonials}
-          currentIndex={currentIndex}
-          trackRef={trackRef}
-          goTo={goTo}
-        />
+        <Testimonials testimonials={testimonials} />
         <SizeGuide />
         <Advantages />
         <ComparisonTable />
         <FinalCta />
         <FaqSection />
-      </div>
+      </ScrollRevealWrapper>
       <Footer />
       <StickyCta />
       <WaFloat />

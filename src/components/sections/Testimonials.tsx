@@ -1,5 +1,8 @@
+'use client';
+
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useCarousel } from '@/hooks/useCarousel';
 import styles from './Testimonials.module.css';
 
 interface Testimonial {
@@ -16,9 +19,6 @@ interface Testimonial {
 
 interface TestimonialsProps {
   testimonials: Testimonial[];
-  currentIndex: number;
-  trackRef: React.RefObject<HTMLDivElement | null>;
-  goTo: (idx: number) => void;
 }
 
 const gap = 16;
@@ -33,7 +33,8 @@ function Stars({ count }: { count: number }) {
   );
 }
 
-export default function Testimonials({ testimonials, currentIndex, trackRef, goTo }: TestimonialsProps) {
+export default function Testimonials({ testimonials }: TestimonialsProps) {
+  const { trackRef, currentIndex, goTo } = useCarousel(testimonials.length, 2000);
   const [cardWidth, setCardWidth] = useState(0);
   const rafRef = useRef<number>(0);
 

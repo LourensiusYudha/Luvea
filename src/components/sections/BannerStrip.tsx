@@ -1,5 +1,3 @@
-'use client';
-
 import styles from './BannerStrip.module.css';
 
 const messages = [

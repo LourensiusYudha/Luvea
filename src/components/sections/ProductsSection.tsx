@@ -26,7 +26,7 @@ export default function ProductsSection() {
 
       <div className={`${styles.scarcity} reveal-up`}>
         <span className={styles.dot} />
-        <p>⚡ Stok terbatas! <strong>Sudah <span id="lv4OrderCount">{orderCount}</span> pesanan</strong> masuk hari ini. Jangan sampai kehabisan.</p>
+        <p>⚡ Stok terbatas! <strong>Sudah <span id="lv4OrderCount">{orderCount ?? '...'}</span> pesanan</strong> masuk hari ini. Jangan sampai kehabisan.</p>
       </div>
     </section>
   );

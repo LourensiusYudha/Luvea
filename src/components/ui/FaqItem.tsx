@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import type { FaqItem as FaqItemType } from '@/data/faq';
 import styles from './FaqItem.module.css';
 

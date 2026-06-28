@@ -1,17 +1,18 @@
 'use client';
 
+import { memo } from 'react';
 import Image from 'next/image';
 import { useNav } from '@/hooks/useNav';
 import styles from './Nav.module.css';
 
-const links = [
+const Nav = memo(function Nav() {
+  const links = [
   { href: '#produk', label: 'Produk' },
   { href: '#ukuran', label: 'Ukuran' },
   { href: '#keunggulan', label: 'Keunggulan' },
   { href: '#testimoni', label: 'Ulasan' },
 ];
 
-export default function Nav() {
   const { open, scrolled, toggle, close } = useNav();
 
   return (
@@ -55,4 +56,6 @@ export default function Nav() {
       <div className={`${styles.overlay} ${open ? styles.open : ''}`} onClick={close} />
     </>
   );
-}
+});
+
+export default Nav;

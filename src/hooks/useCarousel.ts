@@ -5,7 +5,12 @@ import { useRef, useEffect, useState } from 'react';
 export function useCarousel(totalSlides: number, intervalMs: number = 3000) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const currentIndexRef = useRef(currentIndex);
   const isPaused = useRef(false);
+
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
   const drag = useRef({ active: false, startX: 0, startIdx: 0 });
 
   const gap = 16;
@@ -58,7 +63,7 @@ export function useCarousel(totalSlides: number, intervalMs: number = 3000) {
 
     function onDown(e: MouseEvent | TouchEvent) {
       const x = 'touches' in e ? e.touches[0].clientX : e.clientX;
-      drag.current = { active: true, startX: x, startIdx: currentIndex };
+      drag.current = { active: true, startX: x, startIdx: currentIndexRef.current };
       isPaused.current = true;
       if ('touches' in e) return;
       el.style.cursor = 'grabbing';
@@ -100,7 +105,7 @@ export function useCarousel(totalSlides: number, intervalMs: number = 3000) {
       window.removeEventListener('touchend', onUp);
       track.removeEventListener('touchmove', onMove);
     };
-  }, [currentIndex, totalSlides]);
+  }, [totalSlides]);
 
   return { trackRef, currentIndex, goTo };
 }
