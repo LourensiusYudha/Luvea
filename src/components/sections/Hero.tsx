@@ -1,70 +1,126 @@
+'use client';
+
 import Image from 'next/image';
+import { motion, useReducedMotion, type Variants } from 'motion/react';
+import { shopeeLink, STATS } from '@/data/links';
+import ChannelIcon from '@/components/ui/ChannelIcon';
 import styles from './Hero.module.css';
 
+const container: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
+};
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+};
+
+const avatars = [
+  { src: '/images/testimonials/maya.jpg', name: 'Maya' },
+  { src: '/images/testimonials/nadia.jpg', name: 'Nadia' },
+  { src: '/images/testimonials/salsabila.jpg', name: 'Salsabila' },
+  { src: '/images/testimonials/anisa.jpg', name: 'Anisa' },
+];
+
 export default function Hero() {
+  const reduce = useReducedMotion();
+
   return (
     <section className={styles.hero} id="hero">
       <div className={styles.inner}>
-        <div className={styles.content}>
-          <span className="eyebrow">New Arrival — Limited Stock</span>
+        <motion.div
+          className={styles.content}
+          variants={container}
+          initial={reduce ? false : 'hidden'}
+          animate="show"
+        >
+          <motion.span className="eyebrow" variants={item}>
+            Piyama Rayon Grade A
+          </motion.span>
 
-          <h1 className={styles.title}>
-            Definisi Baru<br /><span className={styles.subLine}>Loungewear Premium</span><br />{' '}
-            <Image src="/images/Luvea.png" alt="Luvea" width={310} height={120} priority className={styles.heroLogo} />
-          </h1>
+          <motion.h1 className={styles.title} variants={item}>
+            Adem sepanjang hari,<br />
+            <em>anggun</em> setiap saat.
+          </motion.h1>
 
-          <p className={styles.tagline}>
-            Rasakan kemewahan Rayon Premium Grade A yang 2x lebih adem dan breathable. Didesain elegan untuk tidur lelap, kemudahan menyusui, hingga menunjang morning routine aesthetic-mu—tanpa perlu ganti baju saat harus keluar rumah.
-          </p>
+          <motion.p className={styles.tagline} variants={item}>
+            Rayon grade A yang lembut dan adem, cukup elegan dipakai dari kamar
+            sampai menyambut tamu di depan pintu.
+          </motion.p>
 
-          <div className={styles.badges}>
-            {['Bahan Lembut', 'Motif Elegan', 'Nyaman Sepanjang Hari'].map((b) => (
-              <div key={b} className={styles.microBadge}>{b}</div>
-            ))}
-          </div>
-
-          <div className={styles.priceTag}>Mulai dari <strong>Rp 119.000</strong></div>
-
-          <div className={styles.ctas}>
-            <a href="https://shopee.co.id/luvea.official" target="_blank" rel="noopener" className="btn btn-shopee">
-              <Image src="/images/shopee.png" alt="Shopee" width={18} height={18} />
-              Miliki Kenyamanan Ini
+          <motion.div className={styles.ctas} variants={item}>
+            <a
+              href={shopeeLink({ medium: 'hero', campaign: 'shopee' })}
+              target="_blank"
+              rel="noopener"
+              className="btn btn--lg btn-shopee"
+            >
+              <ChannelIcon src="/images/shopee.png" />
+              Belanja Sekarang
             </a>
-            <a href="https://tiktok.com/@luvea.official" target="_blank" rel="noopener" className={styles.heroTiktok}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.98a8.27 8.27 0 004.84 1.55V7.07a4.85 4.85 0 01-1.07-.38z"/>
-              </svg>
+            <a href="#produk" className="btn btn--lg btn-ghost">
               Lihat Koleksi
             </a>
-          </div>
+          </motion.div>
 
-          <div className={styles.proof}>
+          <motion.div className={styles.proof} variants={item}>
             <div className={styles.avatars}>
-              <div className={styles.av}>
-                <Image src="/images/testimonials/maya.jpg" alt="Maya" width={30} height={30} />
-              </div>
-              <div className={styles.av}>
-                <Image src="/images/testimonials/nadia.jpg" alt="Nadia" width={30} height={30} />
-              </div>
-              <div className={styles.av}>
-                <Image src="/images/testimonials/salsabila.jpg" alt="Salsabila" width={30} height={30} />
-              </div>
-              <div className={styles.av}>
-                <Image src="/images/testimonials/anisa.jpg" alt="Anisa" width={30} height={30} />
-              </div>
+              {avatars.map((a) => (
+                <div key={a.name} className={styles.av}>
+                  <Image src={a.src} alt={a.name} width={36} height={36} />
+                </div>
+              ))}
             </div>
             <div className={styles.proofText}>
               <span className={styles.proofStars}>★★★★★</span>
-              <span>Dipercaya <strong>12.000+</strong> pelanggan</span>
+              <span>
+                Dipercaya <strong>{STATS.customers}</strong> pelanggan
+              </span>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className={styles.visual}>
+        <motion.div
+          className={styles.visual}
+          initial={reduce ? false : { opacity: 0, scale: 0.96, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+        >
           <div className={styles.imgFrame}>
-            <Image src="/images/sekar.png" alt="Piyama Luvea Premium" width={400} height={500} style={{ objectFit: 'cover' }} />
+            <Image
+              src="/images/sekar.png"
+              alt="Piyama Luvea rayon grade A"
+              width={520}
+              height={650}
+              priority
+              className={styles.heroImg}
+            />
           </div>
-        </div>
+
+          <motion.div
+            className={styles.floatCard}
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+          >
+            <span className={styles.floatStars}>★★★★★</span>
+            <div>
+              <strong>{STATS.rating}/5</strong>
+              <small>{STATS.reviews} ulasan asli</small>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className={styles.pricePill}
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.75 }}
+          >
+            <small>Mulai dari</small>
+            <strong>Rp119.000</strong>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

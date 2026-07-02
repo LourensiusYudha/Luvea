@@ -1,53 +1,53 @@
 .section {
-  padding: 80px 20px;
-  background: var(--off-white);
+  padding: 96px 20px;
+  background: var(--blush-bg);
 }
 .inner {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
 }
 .wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  border-radius: 0px;
-  box-shadow: none;
-  margin: 28px 0 32px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin: 32px 0 36px;
+  border: 1px solid var(--rose-100);
 }
 .table {
   width: 100%;
   min-width: 380px;
   border-collapse: collapse;
   background: var(--white);
-  font-size: .9rem;
-  border: 1px solid var(--pink-100);
+  font-size: .92rem;
 }
 .table th,
 .table td {
-  padding: 14px 16px;
+  padding: 16px 18px;
   text-align: left;
-  border-bottom: 1px solid var(--pink-100);
+  border-bottom: 1px solid var(--rose-100);
 }
 .table thead th {
-  font-weight: 700;
-  font-size: .88rem;
-  background: var(--off-white);
+  font-weight: 600;
+  font-size: .9rem;
+  background: var(--rose-50);
   color: var(--dark);
 }
 .colBiasa {
-  color: var(--mid);
-  background: var(--off-white);
+  color: var(--light);
+  background: #fff;
 }
 .colLuvea {
-  background: var(--white);
+  background: var(--rose-50);
   color: var(--dark);
-  font-weight: 700;
+  font-weight: 600;
 }
 .table thead .colLuvea {
-  color: var(--pink-500);
+  color: var(--rose-600);
 }
 .table tbody tr:last-child td { border-bottom: none; }
-.table tbody tr:hover td { background: var(--pink-100); }
+.table tbody tr:hover td { background: var(--rose-50); }
+.table tbody tr:hover .colLuvea { background: var(--rose-100); }
 
 @media (min-width: 900px) {
-  .section { padding: 100px 48px; }
+  .section { padding: 120px 48px; }
 }

@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import { waLink, WA_MESSAGES } from '@/data/links';
 import styles from './WaFloat.module.css';
 
 export default function WaFloat() {
   return (
     <a
-      href="https://wa.me/6281234567890?text=Halo%20kak%2C%20mau%20tanya%20piyama%20Luvea%20%F0%9F%98%8A"
+      href={waLink(WA_MESSAGES.ask)}
       target="_blank"
       rel="noopener"
       className={styles.waFloat}

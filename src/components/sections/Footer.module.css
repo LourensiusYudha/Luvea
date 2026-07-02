@@ -29,12 +29,11 @@
 }
 
 .brandName {
-  font-family: var(--font-body);
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
   color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.01em;
 }
 
 .tagline {
@@ -65,7 +64,7 @@
 }
 
 .colLinks a:hover {
-  color: var(--pink-500);
+  color: var(--cloud-300);
 }
 
 .social {
@@ -77,23 +76,22 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 0px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
   text-decoration: none;
-  transition: filter .2s;
+  transition: transform .3s var(--ease), filter .3s var(--ease);
   color: #fff;
 }
 
 .socialLink:hover {
-  transform: none;
-  box-shadow: none;
-  filter: brightness(0.85);
+  transform: translateY(-3px);
+  filter: brightness(1.05);
 }
 
-.shopee { background: #EE4D2D; }
-.wa { background: #25D366; }
-.tiktok { background: #010101; }
+.shopee { background: var(--shopee); }
+.wa { background: var(--wa); }
+.tiktok { background: var(--tiktok); }
 .tiktok img { filter: brightness(0) invert(1); }
 
 .bottom {

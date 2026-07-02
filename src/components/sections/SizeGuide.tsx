@@ -1,3 +1,4 @@
+import { waLink, WA_MESSAGES } from '@/data/links';
 import styles from './SizeGuide.module.css';
 
 const sizes = [
@@ -10,7 +11,7 @@ export default function SizeGuide() {
   return (
     <section className={styles.section} id="ukuran">
       <div className={styles.inner}>
-        <div className="section-label">— Panduan Ukuran —</div>
+        <div className="section-label">Panduan Ukuran</div>
         <h2 className="section-title reveal-up">Cari Ukuran yang<br /><em>Tepat untukmu</em></h2>
         <p className="section-sub reveal-up">Pilih ukuran berdasarkan lingkar dada (LD).</p>
 
@@ -27,7 +28,7 @@ export default function SizeGuide() {
         <div className={`${styles.tips} reveal-up`}>
           <div className={styles.tip}>
             <span>📏</span>
-            <p>Masih ragu? Hubungi admin via <a href="https://wa.me/6281234567890?text=Halo%20kak%2C%20saya%20mau%20tanya%20ukuran%20piyama%20Luvea">WhatsApp</a> untuk rekomendasi ukuran yang pas.</p>
+            <p>Masih ragu? Hubungi admin via <a href={waLink(WA_MESSAGES.size)} target="_blank" rel="noopener">WhatsApp</a> untuk rekomendasi ukuran yang pas.</p>
           </div>
           <div className={styles.tip}>
             <span>🔄</span>

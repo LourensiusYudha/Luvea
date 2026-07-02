@@ -2,12 +2,12 @@ import styles from './BannerStrip.module.css';
 
 const messages = [
   'GARANSI 100%',
-  'BEST SELLER',
-  'NEW COLLECTION',
-  'FREE ONGKIR SE-INDONESIA',
+  'TERLARIS',
+  'KOLEKSI TERBARU',
+  'GRATIS ONGKIR SE-INDONESIA',
   'RETUR 7 HARI',
   'GARANSI 100%',
-  'BEST SELLER',
+  'TERLARIS',
 ];
 
 export default function BannerStrip() {

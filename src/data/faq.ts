@@ -23,7 +23,7 @@ export const faqItems: FaqItem[] = [
   {
     id: 4,
     question: 'Apakah bahan piyama ini luntur?',
-    answer: 'Tidak mudah luntur. Bahan Rayon Premium Luvea sudah melalui proses washing sehingga warna lebih stabil dan tetap nyaman dipakai setelah dicuci berulang dengan perawatan yang tepat.',
+    answer: 'Tidak mudah luntur. Bahan rayon grade A Luvea sudah melalui proses washing sehingga warna lebih stabil dan tetap nyaman dipakai setelah dicuci berulang dengan perawatan yang tepat.',
   },
   {
     id: 5,

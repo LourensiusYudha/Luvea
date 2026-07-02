@@ -1,20 +1,21 @@
 .section {
-  padding: 80px 20px;
-  background: var(--off-white);
+  padding: 104px 20px;
+  background:
+    radial-gradient(70% 90% at 50% 0%, var(--cloud-100) 0%, transparent 70%),
+    var(--bone);
   text-align: center;
   position: relative; overflow: hidden;
-  border-top: 1px solid var(--pink-100);
 }
-.inner { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; }
+.inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
 .btns {
   display: flex; flex-wrap: wrap; gap: 12px;
   justify-content: center;
-  margin-top: 32px;
+  margin-top: 36px;
 }
 @media (max-width: 639px) {
   .btns { flex-direction: column; align-items: center; }
   .btns a { width: min(320px, 100%); justify-content: center; }
 }
 @media (min-width: 900px) {
-  .section { padding: 100px 48px; }
+  .section { padding: 128px 48px; }
 }

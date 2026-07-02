@@ -1,3 +1,4 @@
+import { withUtm } from '@/data/links';
 import styles from './SwatchSelector.module.css';
 
 interface Swatch {
@@ -18,7 +19,7 @@ export function SwatchSelector({ swatches }: SwatchSelectorProps) {
       {swatches.map((s) => (
         <a
           key={s.color}
-          href={s.shopeeUrl}
+          href={withUtm(s.shopeeUrl, { medium: 'swatch', campaign: s.label.toLowerCase() })}
           target="_blank"
           rel="noopener"
           className={styles.swatch}

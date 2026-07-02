@@ -1,94 +1,83 @@
 .section {
-  padding: 80px 20px;
-  background: var(--dark);
+  padding: 96px 20px;
+  background: var(--off-white);
 }
 
-.inner { max-width: 1060px; margin: 0 auto; }
-
-.section :global(.section-label) {
-  color: var(--pink-500);
-}
-
-.section :global(.section-title) {
-  color: #fff;
-}
-
-.section :global(.section-title em) {
-  color: var(--pink-500);
-}
-
-.section :global(.section-sub) {
-  color: rgba(255,255,255,.6);
-}
+.inner { max-width: 1120px; margin: 0 auto; }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  max-width: 480px;
+  gap: 18px;
+  max-width: 520px;
   margin: 0 auto;
 }
 
 .card {
   background: #fff;
-  border: none;
-  border-radius: 0px;
+  border: 1px solid var(--rose-100);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: none;
-  transition: box-shadow .2s;
+  box-shadow: var(--shadow-sm);
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
-  transform: none;
-  box-shadow: 0 4px 20px rgba(0,0,0,.3);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--rose-200);
 }
 
 .imgWrap {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 4/3;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 24px;
+  background: var(--rose-50);
 }
 
-.imgWrap img {
-  border-radius: 0px;
-}
+.imgWrap img { border-radius: var(--radius-sm); }
 
 .body {
-  padding: 16px 18px 20px;
+  padding: 20px 22px 24px;
 }
 
 .body h3 {
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
   color: var(--dark);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  line-height: 1.15;
 }
 
 .body p {
-  font-size: .86rem;
+  font-size: .9rem;
   color: var(--mid);
-  line-height: 1.55;
+  line-height: 1.6;
   margin: 0;
 }
 
 @media (max-width: 479px) {
-  .grid { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr; max-width: 360px; }
 }
 
 @media (min-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 680px;
+    max-width: 720px;
   }
 }
 
 @media (min-width: 900px) {
-  .section { padding: 100px 48px; }
+  .section { padding: 120px 48px; }
   .grid {
     grid-template-columns: repeat(4, 1fr);
-    max-width: 1060px;
+    max-width: 1120px;
+    gap: 22px;
   }
 }

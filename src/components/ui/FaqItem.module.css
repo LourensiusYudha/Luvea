@@ -1,24 +1,26 @@
 .item {
   background: var(--white);
-  border: 1px solid var(--pink-100);
-  border-radius: 0px;
+  border: 1px solid var(--rose-100);
+  border-radius: var(--radius);
   overflow: hidden;
+  transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
 }
+.item.open { border-color: var(--rose-200); box-shadow: var(--shadow-sm); }
 .q {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 18px 20px;
+  padding: 20px 22px;
   cursor: pointer;
   font-family: var(--font-body);
-  font-size: .97rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--dark);
   text-align: left;
 }
-.q:hover { color: var(--pink-500); }
+.q:hover { color: var(--rose-600); }
 .arrow {
   flex-shrink: 0;
   color: var(--pink-500);

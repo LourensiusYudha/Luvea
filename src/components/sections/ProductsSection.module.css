@@ -1,16 +1,20 @@
 .section {
-  padding: 80px 20px 60px;
+  padding: 96px 20px 80px;
   background: var(--off-white);
 }
 .bestBadge {
-  display: inline-block;
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .18em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .22em;
   text-transform: uppercase;
-  color: #fff;
-  background: var(--pink-500);
-  padding: 6px 18px;
+  color: var(--rose-600);
+  background: var(--rose-50);
+  border: 1px solid var(--rose-100);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
   margin: 0 auto 20px;
   width: fit-content;
 }
@@ -18,41 +22,41 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 24px;
   max-width: 400px;
-  margin: 0 auto 32px;
+  margin: 0 auto 36px;
 }
 .scarcity {
   display: flex; align-items: center; gap: 10px;
-  background: var(--white);
-  border: 1px solid var(--pink-100);
-  border-radius: 0px;
-  padding: 12px 16px;
+  background: var(--rose-50);
+  border: 1px solid var(--rose-100);
+  border-radius: var(--radius-pill);
+  padding: 12px 20px;
   max-width: 480px; margin: 0 auto;
-  font-size: .83rem; color: var(--mid);
+  font-size: .84rem; color: var(--mid);
 }
 .dot {
   width: 8px; height: 8px; border-radius: 50%;
-  background: var(--pink-500); flex-shrink: 0;
-  animation: pulse 1.5s ease-in-out infinite;
+  background: var(--rose-500); flex-shrink: 0;
+  animation: pulse 1.6s ease-in-out infinite;
 }
 @keyframes pulse {
-  0%,100% { box-shadow: 0 0 0 0 rgba(230,0,18,.4); }
-  50% { box-shadow: 0 0 0 6px rgba(230,0,18,0); }
+  0%,100% { box-shadow: 0 0 0 0 rgba(71, 85, 105, .3); }
+  50% { box-shadow: 0 0 0 7px rgba(71, 85, 105, 0); }
 }
-.scarcity strong { color: var(--pink-500); }
+.scarcity strong { color: var(--rose-600); }
 
 @media (min-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 760px;
+    max-width: 780px;
   }
 }
 @media (min-width: 900px) {
-  .section { padding: 100px 48px 80px; }
+  .section { padding: 120px 48px 96px; }
   .grid {
     grid-template-columns: repeat(3, 1fr);
-    max-width: 1060px;
-    align-items: end;
+    max-width: 1120px;
+    align-items: stretch;
   }
 }

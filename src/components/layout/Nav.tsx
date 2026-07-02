@@ -3,6 +3,8 @@
 import { memo } from 'react';
 import Image from 'next/image';
 import { useNav } from '@/hooks/useNav';
+import { shopeeLink } from '@/data/links';
+import ChannelIcon from '@/components/ui/ChannelIcon';
 import styles from './Nav.module.css';
 
 const Nav = memo(function Nav() {
@@ -11,6 +13,7 @@ const Nav = memo(function Nav() {
   { href: '#ukuran', label: 'Ukuran' },
   { href: '#keunggulan', label: 'Keunggulan' },
   { href: '#testimoni', label: 'Ulasan' },
+  { href: '#faq', label: 'FAQ' },
 ];
 
   const { open, scrolled, toggle, close } = useNav();
@@ -28,7 +31,7 @@ const Nav = memo(function Nav() {
           ))}
         </ul>
 
-        <a href="https://shopee.co.id/luvea.official" target="_blank" rel="noopener" className={styles.cta}>
+        <a href={shopeeLink({ medium: 'nav', campaign: 'beli-sekarang' })} target="_blank" rel="noopener" className={styles.cta}>
           Beli Sekarang
         </a>
 
@@ -46,8 +49,8 @@ const Nav = memo(function Nav() {
           ))}
         </ul>
         <div className={styles.drawerCta}>
-          <a href="https://shopee.co.id/luvea.official" target="_blank" rel="noopener" className="btn btn-shopee btn--lg">
-            <Image src="/images/shopee.png" alt="Shopee" width={18} height={18} />
+          <a href={shopeeLink({ medium: 'nav-drawer', campaign: 'beli-shopee' })} target="_blank" rel="noopener" className="btn btn-shopee btn--lg">
+            <ChannelIcon src="/images/shopee.png" />
             Beli di Shopee
           </a>
         </div>

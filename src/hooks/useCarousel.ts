@@ -1,94 +1,129 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 
-export function useCarousel(totalSlides: number, intervalMs: number = 3000) {
+const GAP = 16;
+
+export function useCarousel(totalSlides: number, intervalMs: number = 4500) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const currentIndexRef = useRef(currentIndex);
+  const [index, setIndex] = useState(1);
+  const [enableTransition, setEnableTransition] = useState(true);
+  const [dragOffset, setDragOffset] = useState(0);
   const isPaused = useRef(false);
+  const isDragging = useRef(false);
+  const dragStart = useRef({ x: 0, index: 1 });
+  const indexRef = useRef(index);
+  const dragOffsetRef = useRef(dragOffset);
 
   useEffect(() => {
-    currentIndexRef.current = currentIndex;
-  }, [currentIndex]);
-  const drag = useRef({ active: false, startX: 0, startIdx: 0 });
+    indexRef.current = index;
+  }, [index]);
 
-  const gap = 16;
+  useEffect(() => {
+    dragOffsetRef.current = dragOffset;
+  }, [dragOffset]);
 
-  function getCardWidth() {
+  const displayIndex =
+    index === 0 ? totalSlides - 1 : index > totalSlides ? 0 : index - 1;
+
+  const getCardWidth = useCallback(() => {
     const track = trackRef.current;
     if (!track) return 0;
     const card = track.firstElementChild as HTMLElement | null;
     return card ? card.offsetWidth : 0;
-  }
+  }, []);
 
-  function goTo(idx: number) {
-    const clamped = Math.max(0, Math.min(idx, totalSlides - 1));
-    setCurrentIndex(clamped);
-  }
+  const goTo = useCallback((realIdx: number) => {
+    setEnableTransition(true);
+    setDragOffset(0);
+    setIndex(realIdx + 1);
+  }, []);
 
-  // auto-slide
+  const handleTransitionEnd = useCallback(() => {
+    if (index === 0) {
+      setEnableTransition(false);
+      setIndex(totalSlides);
+    } else if (index === totalSlides + 1) {
+      setEnableTransition(false);
+      setIndex(1);
+    }
+  }, [index, totalSlides]);
+
+  useEffect(() => {
+    if (!enableTransition) {
+      const id = requestAnimationFrame(() => {
+        requestAnimationFrame(() => setEnableTransition(true));
+      });
+      return () => cancelAnimationFrame(id);
+    }
+  }, [enableTransition]);
+
   useEffect(() => {
     const id = setInterval(() => {
-      if (isPaused.current) return;
-      setCurrentIndex((prev) => (prev + 1 >= totalSlides ? 0 : prev + 1));
+      if (isPaused.current || isDragging.current) return;
+      setEnableTransition(true);
+      setDragOffset(0);
+      setIndex((prev) => prev + 1);
     }, intervalMs);
     return () => clearInterval(id);
-  }, [totalSlides, intervalMs]);
+  }, [intervalMs, totalSlides]);
 
-  // pause on hover / touch
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
+
     const onStart = () => { isPaused.current = true; };
     const onEnd = () => { isPaused.current = false; };
     track.addEventListener('mouseenter', onStart);
     track.addEventListener('mouseleave', onEnd);
-    track.addEventListener('touchstart', onStart, { passive: true });
-    track.addEventListener('touchend', onEnd, { passive: true });
     return () => {
       track.removeEventListener('mouseenter', onStart);
       track.removeEventListener('mouseleave', onEnd);
-      track.removeEventListener('touchstart', onStart);
-      track.removeEventListener('touchend', onEnd);
     };
   }, []);
 
-  // drag/swipe
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
-    const el = track;
-
     function onDown(e: MouseEvent | TouchEvent) {
       const x = 'touches' in e ? e.touches[0].clientX : e.clientX;
-      drag.current = { active: true, startX: x, startIdx: currentIndexRef.current };
+      isDragging.current = true;
       isPaused.current = true;
-      if ('touches' in e) return;
-      el.style.cursor = 'grabbing';
+      dragStart.current = { x, index: indexRef.current };
+      setEnableTransition(false);
+      setDragOffset(0);
+      if (!('touches' in e)) track!.style.cursor = 'grabbing';
     }
 
     function onUp() {
-      if (!drag.current.active) return;
-      drag.current.active = false;
-      el.style.cursor = '';
+      if (!isDragging.current) return;
+      isDragging.current = false;
+      track!.style.cursor = '';
+
+      const cw = getCardWidth() + GAP;
+      if (cw === 0) {
+        isPaused.current = false;
+        return;
+      }
+
+      const threshold = cw * 0.2;
+      const offset = dragOffsetRef.current;
+      let newIndex = dragStart.current.index;
+
+      if (offset < -threshold) newIndex = dragStart.current.index + 1;
+      else if (offset > threshold) newIndex = dragStart.current.index - 1;
+
+      setEnableTransition(true);
+      setDragOffset(0);
+      setIndex(newIndex);
       isPaused.current = false;
     }
 
     function onMove(e: MouseEvent | TouchEvent) {
-      if (!drag.current.active) return;
+      if (!isDragging.current) return;
       const x = 'touches' in e ? e.touches[0].clientX : e.clientX;
-      const dx = drag.current.startX - x;
-      const cw = getCardWidth() + gap;
-      if (cw === 0) return;
-      const delta = Math.round(dx / cw);
-      if (delta !== 0) {
-        const newIdx = Math.max(0, Math.min(drag.current.startIdx + delta, totalSlides - 1));
-        setCurrentIndex(newIdx);
-        drag.current.startIdx = newIdx;
-        drag.current.startX = x;
-      }
+      setDragOffset(x - dragStart.current.x);
     }
 
     track.addEventListener('mousedown', onDown);
@@ -97,6 +132,7 @@ export function useCarousel(totalSlides: number, intervalMs: number = 3000) {
     track.addEventListener('touchstart', onDown, { passive: true });
     window.addEventListener('touchend', onUp, { passive: true });
     track.addEventListener('touchmove', onMove, { passive: true });
+
     return () => {
       track.removeEventListener('mousedown', onDown);
       window.removeEventListener('mouseup', onUp);
@@ -105,7 +141,16 @@ export function useCarousel(totalSlides: number, intervalMs: number = 3000) {
       window.removeEventListener('touchend', onUp);
       track.removeEventListener('touchmove', onMove);
     };
-  }, [totalSlides]);
+  }, [getCardWidth, totalSlides]);
 
-  return { trackRef, currentIndex, goTo };
+  return {
+    trackRef,
+    index,
+    displayIndex,
+    goTo,
+    enableTransition,
+    dragOffset,
+    handleTransitionEnd,
+    gap: GAP,
+  };
 }

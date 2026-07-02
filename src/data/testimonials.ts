@@ -47,8 +47,8 @@ export const testimonials: Testimonial[] = [
   {
     id: 4,
     stars: 4,
-    text: 'Bahannya enak dan adem banget, cocok buat menyusui. Pengiriman agak telat 2 hari, tapi produknya worth it banget. Pasti repeat order!',
-    variant: 'Blossom Pink (Bump Friendly)',
+    text: 'Bahannya enak dan adem banget, kancing depannya memudahkan buat menyusui. Pengiriman agak telat 2 hari, tapi produknya worth it banget. Pasti repeat order!',
+    variant: 'Blossom Pink',
     name: 'Fitri Amalia',
     location: 'Surabaya',
     date: '8 Mei 2026',
@@ -58,8 +58,8 @@ export const testimonials: Testimonial[] = [
   {
     id: 5,
     stars: 5,
-    text: 'Suami aku juga pakai versi couple-nya. Kita foto bareng tiap malam haha. Desainnya aesthetic banget, cocok buat konten juga!',
-    variant: 'Couple Series',
+    text: 'Desainnya aesthetic banget, cocok buat konten juga! Bahannya adem dan jatuh, dipakai santai di rumah tetap terlihat rapi dan pede.',
+    variant: 'Sky Blue',
     name: 'Anisa',
     location: 'Bandung',
     date: '18 Mei 2026',

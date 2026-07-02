@@ -1,71 +1,81 @@
 .section {
-  padding: 64px 20px;
-  background: var(--off-white);
+  padding: 88px 20px;
+  background: var(--blush-bg);
 }
 .inner {
-  max-width: 900px;
+  max-width: 940px;
   margin: 0 auto;
   text-align: center;
 }
 .cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
-  margin: 32px 0;
+  gap: 16px;
+  margin: 40px 0;
   text-align: left;
 }
 .card {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 16px;
   background: var(--white);
-  border: 1px solid var(--pink-100);
-  border-radius: 0px;
-  padding: 18px 16px;
-  box-shadow: none;
-  transition: border-color .2s;
+  border: 1px solid var(--rose-100);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
 }
 .card:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: var(--pink-500);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--rose-200);
 }
 .icon {
-  font-size: 1.6rem;
+  font-family: var(--font-display), serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--cloud-700);
   flex-shrink: 0;
   line-height: 1;
-  margin-top: 2px;
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--rose-50);
+  border: 1px solid var(--rose-100);
+  border-radius: var(--radius-sm);
 }
 .card strong {
   display: block;
-  font-size: .95rem;
+  font-size: 1rem;
   color: var(--dark);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 .card p {
-  font-size: .85rem;
+  font-size: .9rem;
   color: var(--mid);
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
 }
 .solution {
-  display: flex;
-  align-items: center;
-  gap: 14px;
   background: var(--white);
-  border: 2px solid var(--pink-500);
-  border-radius: 0px;
-  padding: 20px 22px;
+  border: 1px solid var(--rose-200);
+  border-left: 4px solid var(--rose-500);
+  border-radius: var(--radius);
+  padding: 26px 28px;
   text-align: left;
+  box-shadow: var(--shadow-md);
 }
-.solutionIcon { font-size: 1.8rem; flex-shrink: 0; }
 .solution p {
-  font-size: .95rem;
+  font-size: 1rem;
   color: var(--dark);
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0;
-  font-weight: 600;
+  font-weight: 500;
 }
 @media (min-width: 580px) {
   .cards { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 900px) {
+  .section { padding: 120px 48px; }
 }

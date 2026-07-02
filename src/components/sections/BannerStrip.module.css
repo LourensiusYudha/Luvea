@@ -1,9 +1,9 @@
 .strip {
   width: 100%;
   overflow: hidden;
-  background: var(--pink-500);
+  background: #e50012;
   color: #fff;
-  height: 44px;
+  height: var(--topbar-h);
   display: flex;
   align-items: center;
   position: relative;
@@ -19,19 +19,20 @@
 
 .item {
   font-family: var(--font-body);
-  font-size: .85rem;
-  font-weight: 700;
-  letter-spacing: .15em;
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .16em;
   text-transform: uppercase;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.95);
   display: inline-flex;
   align-items: center;
   gap: 12px;
 }
 
 .item::after {
-  content: '•';
-  opacity: 0.5;
+  content: '';
+  width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
   margin-left: 12px;
 }
 

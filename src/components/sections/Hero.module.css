@@ -1,16 +1,19 @@
 .hero {
   position: relative;
   overflow: hidden;
-  background: var(--off-white);
+  background:
+    radial-gradient(60% 55% at 82% 18%, var(--cloud-100) 0%, transparent 60%),
+    radial-gradient(50% 50% at 8% 90%, var(--cloud-50) 0%, transparent 55%),
+    var(--bone);
 }
 .inner {
   position: relative; z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 24px 60px;
-  gap: 32px;
-  max-width: 1100px;
+  padding: 44px 24px 64px;
+  gap: 44px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 .content {
@@ -18,168 +21,115 @@
   max-width: 560px;
 }
 .title {
-  font-family: var(--font-body);
-  font-size: clamp(1.8rem, 8vw, 3rem);
-  font-weight: 700; line-height: 1.1;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 9vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.04;
   color: var(--dark);
-  margin-bottom: 16px;
-  letter-spacing: 0.03em;
-  white-space: nowrap;
+  margin-bottom: 20px;
+  letter-spacing: -0.015em;
 }
-.heroLogo {
-  display: inline;
-  max-width: min(310px, 80vw);
-  height: auto;
-  vertical-align: middle;
-}
-.subLine {
-  font-size: 0.75em;
-  display: inline-block;
-  line-height: 1.4;
+.title em {
+  font-style: italic;
+  color: var(--cloud-600);
+  line-height: 1.15;
 }
 .tagline {
-  font-size: clamp(.9rem, 2.5vw, 1.05rem);
-  line-height: 1.7; color: var(--mid);
-  margin-bottom: 24px;
-  text-align: center;
-}
-.priceTag {
-  display: block;
-  font-size: 1.05rem;
-  color: var(--mid);
-  margin-bottom: 16px;
-  text-align: center;
-}
-.priceTag strong {
-  color: var(--pink-500);
-  font-size: 1.3rem;
-}
-.badges {
-  display: flex; flex-wrap: nowrap; gap: 6px;
-  justify-content: flex-start;
-  margin-bottom: 14px;
-}
-.microBadge {
-  font-size: .78rem; font-weight: 500;
-  color: var(--dark);
-  background: var(--white);
-  border: 1px solid var(--pink-100);
-  padding: 6px 14px; border-radius: 0px;
-  white-space: nowrap;
+  font-size: clamp(1rem, 2.4vw, 1.12rem);
+  line-height: 1.75; color: var(--mid);
+  margin: 0 auto 30px;
+  max-width: 460px;
 }
 .ctas {
   display: flex; gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 24px;
+  margin-bottom: 34px;
 }
-.ctas .btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 24px;
-  font-size: 15px;
-  font-weight: 700;
-  border-radius: 0px;
-  text-decoration: none;
-}
-.heroTiktok {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 28px;
-  border-radius: 0px;
-  font-family: var(--font-body);
-  font-size: .86rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  border: 2px solid var(--dark);
-  color: var(--dark);
-  background: transparent;
-  transition: background .2s, color .2s;
-  white-space: nowrap;
-}
-.heroTiktok:hover {
-  border-color: var(--pink-500);
-  color: var(--pink-500);
-  transform: none;
-  box-shadow: none;
-}
-
-@media (max-width: 480px) {
-  .badges { justify-content: center; }
-  .ctas {
-    flex-direction: column;
-    align-items: center;
-  }
-  .ctas a {
-    width: auto;
-    min-width: 220px;
-  }
-  .microBadge {
-    font-size: .65rem;
-    padding: 4px 8px;
-  }
-}
-
 .proof {
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; gap: 14px;
   justify-content: center;
 }
 .avatars { display: flex; }
 .av {
-  width: 30px; height: 30px; border-radius: 50%;
+  width: 38px; height: 38px; border-radius: 50%;
   border: 2px solid #fff;
   overflow: hidden;
-  margin-left: -8px;
+  margin-left: -10px;
   flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
 }
-.av img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
+.av img { width: 100%; height: 100%; object-fit: cover; }
 .av:first-child { margin-left: 0; }
 .proofText {
   display: flex; flex-direction: column;
-  font-size: .8rem; color: var(--mid); line-height: 1.4;
+  font-size: .85rem; color: var(--mid); line-height: 1.45;
+  text-align: left;
 }
-.proofStars { color: #FAAD14; font-size: .85rem; letter-spacing: 1px; }
+.proofStars { color: #e0a43a; font-size: .82rem; letter-spacing: 2px; }
 .proofText strong { color: var(--dark); }
 
+/* Visual */
 .visual {
+  position: relative;
   width: 100%;
-  max-width: 340px;
+  max-width: 380px;
 }
 .imgFrame {
-  border-radius: 0px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--pink-100);
+  background: var(--cloud-50);
   aspect-ratio: 4/5;
   position: relative;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--cloud-200);
 }
-.imgFrame img { width: 100%; height: 100%; object-fit: cover; }
+.heroImg { width: 100%; height: 100%; object-fit: cover; }
+
+.floatCard {
+  position: absolute;
+  bottom: 22px; left: -14px;
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  box-shadow: var(--shadow-md);
+}
+.floatStars { color: #e0a43a; font-size: .8rem; letter-spacing: 1px; }
+.floatCard strong { display: block; font-size: 1rem; color: var(--dark); line-height: 1.1; }
+.floatCard small { font-size: .72rem; color: var(--mid); }
+
+.pricePill {
+  position: absolute;
+  top: 20px; right: -12px;
+  display: flex; flex-direction: column; align-items: flex-start;
+  background: var(--dark);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 10px 18px;
+  box-shadow: var(--shadow-md);
+}
+.pricePill small { font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
+.pricePill strong { font-size: 1.15rem; font-weight: 600; font-family: var(--font-display); }
 
 @media (min-width: 640px) {
-  .hero { padding: 0; }
-  .inner { padding: 60px 32px 72px; gap: 40px; }
-  .title { font-size: clamp(2.2rem, 7vw, 3.4rem); }
+  .inner { padding: 64px 32px 80px; gap: 52px; }
+  .visual { max-width: 420px; }
 }
 @media (min-width: 900px) {
   .inner {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 60px 52px 80px;
-    gap: 48px;
+    padding: 72px 52px 96px;
+    gap: 64px;
   }
-  .content { text-align: left; max-width: 480px; }
-  .tagline { text-align: justify; }
+  .content { text-align: left; max-width: 520px; flex-shrink: 0; }
+  .tagline { margin-left: 0; }
   .ctas    { justify-content: flex-start; }
   .proof   { justify-content: flex-start; }
-  .priceTag { text-align: left; }
-  .visual { max-width: 420px; flex-shrink: 0; }
+  .visual { max-width: 440px; flex-shrink: 0; }
 }

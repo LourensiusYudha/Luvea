@@ -3,7 +3,9 @@
 import Image from 'next/image';
 import { SwatchSelector } from './SwatchSelector';
 import { CountdownTimer } from './CountdownTimer';
+import ChannelIcon from './ChannelIcon';
 import { Product, formatPrice, getDiscount } from '@/data/products';
+import { withUtm, waLink, TIKTOK_URL, WA_MESSAGES, FEATURES } from '@/data/links';
 import styles from './ProductCard.module.css';
 
 interface ProductCardProps {
@@ -25,6 +27,7 @@ const badgeClassMap: Record<string, string> = {
 export default function ProductCard({ product }: ProductCardProps) {
   const cardClass = `${styles.card} ${product.featured ? styles.featured : ''}`;
   const badgeClass = `${styles.badge} ${badgeClassMap[product.color] || ''}`;
+  const buyUrl = withUtm(product.shopeeUrl, { medium: 'product-card', campaign: product.id });
 
   return (
     <article className={cardClass} data-color={product.color} id={product.id}>
@@ -46,28 +49,29 @@ export default function ProductCard({ product }: ProductCardProps) {
           <span className={styles.ori}>{formatPrice(product.originalPrice)}</span>
           <span className={styles.disc}>{getDiscount(product.originalPrice, product.price)}</span>
         </div>
-        <div className={styles.material}>🌿 Rayon Premium Grade A</div>
-        {product.featured && <CountdownTimer />}
+        <div className={styles.material}>Rayon Grade A</div>
+        {product.featured && FEATURES.promoCountdown && <CountdownTimer />}
         <SwatchSelector swatches={product.swatches} />
         <a
-          href="https://shopee.co.id/luvea.official"
+          href={buyUrl}
           target="_blank"
           rel="noopener"
-          className={`${styles.btn} ${product.featured ? styles.btnFeatured : ''}`}
+          className={`btn btn-shopee ${styles.btn} ${product.featured ? styles.btnFeatured : ''}`}
         >
-          <Image src="/images/shopee.png" alt="" width={18} height={18} />
-          {product.featured ? 'Ambil Promo Sekarang →' : 'Beli di Shopee →'}
+          <ChannelIcon src="/images/shopee.png" />
+          {product.featured ? 'Ambil Promo Sekarang' : 'Beli di Shopee'}
         </a>
         <div className={styles.altChannels}>
           <span className={styles.altLabel}>Juga tersedia di</span>
-          <a href="https://tiktok.com/@luvea.official" target="_blank" className={styles.altLink} aria-label="TikTok Shop">
+          <a href={TIKTOK_URL} target="_blank" rel="noopener" className={styles.altLink} aria-label="TikTok Shop">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.98a8.27 8.27 0 004.84 1.55V7.07a4.85 4.85 0 01-1.07-.38z"/>
             </svg>
           </a>
           <a
-            href="https://wa.me/6281234567890?text=Halo%20kak%2C%20saya%20mau%20pesan%20piyama%20Luvea%20%F0%9F%98%8A"
+            href={waLink(WA_MESSAGES.order)}
             target="_blank"
+            rel="noopener"
             className={styles.altLink}
             aria-label="WhatsApp"
           >

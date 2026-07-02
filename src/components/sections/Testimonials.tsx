@@ -1,8 +1,9 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
 import { useCarousel } from '@/hooks/useCarousel';
+import { STATS } from '@/data/links';
 import styles from './Testimonials.module.css';
 
 interface Testimonial {
@@ -21,8 +22,6 @@ interface TestimonialsProps {
   testimonials: Testimonial[];
 }
 
-const gap = 16;
-
 function Stars({ count }: { count: number }) {
   if (count === 5) return <span className={styles.starsFull}>★★★★★</span>;
   return (
@@ -33,8 +32,54 @@ function Stars({ count }: { count: number }) {
   );
 }
 
+function TestimonialCard({ t }: { t: Testimonial }) {
+  return (
+    <div className={styles.card}>
+      <div className={styles.top}>
+        <Stars count={t.stars} />
+        <span className={styles.verified}>✓ Terverifikasi</span>
+      </div>
+      <p className={styles.quote}>{t.text}</p>
+      <div className={styles.variant}>{t.variant}</div>
+      <div className={styles.footer}>
+        <Image
+          src={t.avatarUrl}
+          alt={t.name}
+          width={36}
+          height={36}
+          className={styles.avatar}
+        />
+        <div>
+          <strong>{t.name}</strong>
+          <span>{t.location} • {t.date}</span>
+        </div>
+      </div>
+      <div className={styles.helpful}>👍 {t.helpful} orang merasa ini membantu</div>
+    </div>
+  );
+}
+
 export default function Testimonials({ testimonials }: TestimonialsProps) {
-  const { trackRef, currentIndex, goTo } = useCarousel(testimonials.length, 2000);
+  const {
+    trackRef,
+    index,
+    displayIndex,
+    goTo,
+    enableTransition,
+    dragOffset,
+    handleTransitionEnd,
+    gap,
+  } = useCarousel(testimonials.length, 4500);
+
+  const slides = useMemo(
+    () => [
+      testimonials[testimonials.length - 1],
+      ...testimonials,
+      testimonials[0],
+    ],
+    [testimonials],
+  );
+
   const [cardWidth, setCardWidth] = useState(0);
   const rafRef = useRef<number>(0);
 
@@ -57,58 +102,46 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
     };
   }, [trackRef]);
 
-  const translateX = cardWidth ? -(currentIndex * (cardWidth + gap)) : 0;
+  const baseOffset = cardWidth ? -(index * (cardWidth + gap)) : 0;
+  const translateX = baseOffset + dragOffset;
 
   return (
     <section className={styles.section} id="testimoni">
-      <div className="section-label">— Kata Mereka —</div>
-      <h2 className="section-title reveal-up">Ribuan Pelanggan<br /><em>Sudah Merasakan</em></h2>
+      <div className="section-label">Kata Mereka</div>
+      <h2 className="section-title reveal-up">Pembeli Nyata,<br /><em>Cerita Nyata</em></h2>
 
       <div className={`${styles.summary} reveal-up`}>
         <div className={styles.summaryStars}>⭐⭐⭐⭐⭐</div>
-        <div className={styles.summaryScore}><strong>4.9</strong><span>/5</span></div>
-        <div className={styles.summaryCount}>dari <b>3.200+</b> ulasan</div>
+        <div className={styles.summaryScore}><strong>{STATS.rating}</strong><span>/5</span></div>
+        <div className={styles.summaryCount}>dari <b>{STATS.reviews}</b> ulasan di Shopee</div>
       </div>
 
-      <div className={styles.carousel}>
+      <div
+        className={styles.carousel}
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Ulasan pelanggan Luvea"
+      >
         <div
-          className={styles.track}
+          className={`${styles.track} ${enableTransition ? styles.trackAnimated : ''}`}
           ref={trackRef}
-          style={{ transform: `translateX(${translateX}px)` }}
+          style={{ transform: `translate3d(${translateX}px, 0, 0)` }}
+          onTransitionEnd={handleTransitionEnd}
         >
-          {testimonials.map((t) => (
-            <div key={t.id} className={styles.card}>
-              <div className={styles.top}>
-                <Stars count={t.stars} />
-                <span className={styles.verified}>✓ Terverifikasi</span>
-              </div>
-              <p className={styles.quote}>{t.text}</p>
-              <div className={styles.variant}>{t.variant}</div>
-              <div className={styles.footer}>
-                <Image
-                  src={t.avatarUrl}
-                  alt={t.name}
-                  width={36}
-                  height={36}
-                  className={styles.avatar}
-                />
-                <div>
-                  <strong>{t.name}</strong>
-                  <span>{t.location} • {t.date}</span>
-                </div>
-              </div>
-              <div className={styles.helpful}>👍 {t.helpful} orang merasa ini membantu</div>
-            </div>
+          {slides.map((t, i) => (
+            <TestimonialCard key={`${t.id}-${i}`} t={t} />
           ))}
         </div>
       </div>
 
       <div className={styles.dots}>
         {testimonials.map((_, i) => (
-          <div
+          <button
             key={i}
-            className={`${styles.dot} ${i === currentIndex ? styles.dotActive : ''}`}
+            type="button"
+            className={`${styles.dot} ${i === displayIndex ? styles.dotActive : ''}`}
             onClick={() => goTo(i)}
+            aria-label={`Ulasan ${i + 1}`}
           />
         ))}
       </div>

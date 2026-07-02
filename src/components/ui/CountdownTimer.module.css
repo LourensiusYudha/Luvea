@@ -1,19 +1,19 @@
 .wrap {
-  background: var(--white);
-  border: 1px solid var(--pink-100);
-  border-radius: 0px; padding: 10px 14px;
-  margin-bottom: 12px;
+  background: var(--rose-50);
+  border: 1px solid var(--rose-100);
+  border-radius: var(--radius); padding: 12px 16px;
+  margin-bottom: 16px;
 }
-.label { font-size: .76rem; color: var(--mid); display: block; margin-bottom: 6px; }
+.label { font-size: .74rem; color: var(--rose-600); display: block; margin-bottom: 8px; font-weight: 500; letter-spacing: .02em; }
 .timer {
-  display: flex; align-items: center; gap: 4px;
+  display: flex; align-items: center; gap: 5px;
 }
 .unit {
   display: flex; flex-direction: column; align-items: center;
   background: var(--dark); color: #fff;
-  border-radius: 0px; padding: 4px 8px;
-  min-width: 38px;
+  border-radius: var(--radius-sm); padding: 5px 9px;
+  min-width: 40px;
 }
-.unit span { font-size: 1rem; font-weight: 700; font-family: var(--font-body); line-height: 1; }
-.unit small { font-size: .6rem; opacity: .8; margin-top: 2px; }
-.sep { font-size: .9rem; font-weight: 700; color: var(--dark); }
+.unit span { font-size: 1.05rem; font-weight: 600; font-family: var(--font-body); line-height: 1; font-variant-numeric: tabular-nums; }
+.unit small { font-size: .58rem; opacity: .7; margin-top: 3px; text-transform: uppercase; letter-spacing: .05em; }
+.sep { font-size: .9rem; font-weight: 700; color: var(--rose-400); }

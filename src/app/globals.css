@@ -1,107 +1,257 @@
 :root {
-  --pink-50:  #f4f4f4;
-  --pink-100: #e5e5e5;
-  --pink-200: #cccccc;
-  --pink-300: #999999;
-  --pink-400: #e60012;
-  --pink-500: #e60012;
-  --pink-600: #b3000e;
-  --lavender-100: #f4f4f4;
-  --lavender-300: #cccccc;
-  --lavender-400: #999999;
-  --lavender-500: #e60012;
-  --mint-100: #f4f4f4;
-  --mint-400: #111111;
-  --gold-100: #ffffff;
-  --gold-200: #e5e5e5;
-  --gold-500: #111111;
-  --gold-600: #111111;
-  --off-white: #ffffff;
-  --white: #fff;
-  --dark: #000000;
-  --mid: #333333;
-  --light: #7f7f7f;
-  --radius: 0px;
-  --radius-sm: 0px;
-  --radius-pill: 0px;
-  --shadow-sm:  0px 0px 0px transparent;
-  --shadow-md:  0px 0px 0px transparent;
-  --shadow-lg:  0px 0px 0px transparent;
-  --nav-h: 64px;
-  --topbar-h: 36px;
+  /* Soft Cloud — bone white & cool light gray */
+  --bone: #faf9f7;
+  --cloud-50: #f4f5f7;
+  --cloud-100: #eceef2;
+  --cloud-200: #dfe2e8;
+  --cloud-300: #c4c9d2;
+  --cloud-400: #949aa6;
+  --cloud-500: #64748b;
+  --cloud-600: #475569;
+  --cloud-700: #334155;
+  --cloud-800: #1e293b;
+
+  /* Accent aliases (existing modules keep working) */
+  --rose-50: var(--cloud-50);
+  --rose-100: var(--cloud-100);
+  --rose-200: var(--cloud-200);
+  --rose-300: var(--cloud-300);
+  --rose-400: var(--cloud-400);
+  --rose-500: var(--cloud-600);
+  --rose-600: var(--cloud-700);
+  --rose-700: var(--cloud-800);
+
+  --pink-50: var(--cloud-50);
+  --pink-100: var(--cloud-100);
+  --pink-200: var(--cloud-200);
+  --pink-300: var(--cloud-300);
+  --pink-400: var(--cloud-400);
+  --pink-500: var(--cloud-600);
+  --pink-600: var(--cloud-700);
+  --lavender-100: var(--cloud-100);
+  --lavender-300: var(--cloud-300);
+  --lavender-400: var(--cloud-400);
+  --lavender-500: var(--cloud-600);
+  --mint-100: var(--cloud-50);
+  --mint-400: var(--cloud-700);
+  --gold-100: #f7f6f3;
+  --gold-200: #ebe8e1;
+  --gold-500: #9a8f7a;
+  --gold-600: #7a7160;
+
+  /* Neutrals */
+  --white: #ffffff;
+  --off-white: var(--bone);
+  --blush-bg: #f3f4f6;
+  --dark: #1e293b;
+  --mid: #64748b;
+  --light: #94a3b8;
+
+  /* Marketplace brand colors */
+  --shopee: #ee4d2d;
+  --shopee-hover: #d73211;
+  --wa: #25d366;
+  --wa-hover: #1da851;
+  --tiktok: #010101;
+  --tiktok-hover: #1a1a1a;
+
+  /* Shape */
+  --radius: 18px;
+  --radius-lg: 28px;
+  --radius-sm: 12px;
+  --radius-pill: 999px;
+
+  /* Cool gray-tinted elevation */
+  --shadow-sm: 0 2px 12px rgba(30, 41, 59, 0.05);
+  --shadow-md: 0 14px 38px rgba(30, 41, 59, 0.07);
+  --shadow-lg: 0 30px 70px rgba(30, 41, 59, 0.1);
+
+  --nav-h: 72px;
+  --topbar-h: 40px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font-body);
-  background: var(--off-white);
+  background: var(--bone);
   color: var(--dark);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
 }
 img { display: block; max-width: 100%; height: auto; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f4f4f4; }
-::-webkit-scrollbar-thumb { background: #cccccc; border-radius: 0px; }
+::selection { background: var(--cloud-200); color: var(--cloud-800); }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--cloud-50); }
+::-webkit-scrollbar-thumb { background: var(--cloud-300); border-radius: var(--radius-pill); }
 
 .section-label {
-  font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--pink-500); text-align: center;
-  margin-bottom: 14px;
-  font-weight: 700;
-}
-.section-title {
-  font-family: var(--font-body); /* Changed to body (sans-serif) for Uniqlo style */
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  font-weight: 700; line-height: 1.2;
-  text-align: center; color: var(--dark);
-  margin-bottom: 14px;
+  font-size: .7rem;
+  letter-spacing: .32em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: var(--cloud-600);
+  text-align: center;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.08;
+  text-align: center;
+  color: var(--dark);
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
 }
 .section-title em {
-  font-style: normal; color: var(--pink-500);
+  font-style: italic;
+  color: var(--cloud-600);
+  line-height: 1.15;
 }
 .section-sub {
-  font-size: .95rem; color: var(--mid); text-align: center;
-  max-width: 500px; margin: 0 auto 48px; line-height: 1.7;
+  font-size: 1rem;
+  color: var(--mid);
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto 52px;
+  line-height: 1.75;
 }
 
 .eyebrow {
-  display: inline-block;
-  font-size: .72rem; font-weight: 700;
-  letter-spacing: .15em; text-transform: uppercase;
-  color: #fff;
-  background: var(--pink-500);
-  padding: 6px 14px; border-radius: 0px;
-  margin-bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--cloud-700);
+  background: var(--cloud-50);
+  border: 1px solid var(--cloud-200);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 22px;
 }
 
+/* Buttons */
 .btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 14px 28px;
-  border-radius: 0px;
-  font-family: var(--font-body); font-size: .86rem;
-  font-weight: 700; letter-spacing: .08em;
-  text-transform: uppercase;
-  cursor: pointer; border: none;
-  transition: background .2s, color .2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease), background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
   white-space: nowrap;
 }
-.btn:hover, .btn:focus-visible { transform: none; outline: none; filter: brightness(0.9); }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0) scale(0.98); }
+.btn:focus-visible { outline: 2px solid var(--cloud-400); outline-offset: 2px; }
 .btn img { height: 18px; width: auto; flex-shrink: 0; }
 
-.btn--lg  { padding: 16px 32px; font-size: .92rem; }
-.btn--xl  { padding: 18px 40px; font-size: .95rem; }
+.btn--lg { padding: 16px 34px; font-size: .86rem; }
+.btn--xl { padding: 18px 40px; font-size: .9rem; }
 
-.btn-shopee { background: #EE4D2D; color: #fff; box-shadow: none; }
-.btn-shopee:hover { box-shadow: none; background: #d73d1e; }
-.btn-tiktok { background: #000000; color: #fff; box-shadow: none; border: 1px solid #000000; }
-.btn-tiktok:hover { box-shadow: none; background: #333333; }
-.btn-wa { background: #25D366; color: #fff; box-shadow: none; }
-.btn-wa:hover { box-shadow: none; background: #1ebe57; }
+/* White puck behind marketplace logos on filled buttons */
+.channelIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  flex-shrink: 0;
+}
+.channelIcon img {
+  width: 18px !important;
+  height: 18px !important;
+}
+.btn--xl .channelIcon {
+  width: 30px;
+  height: 30px;
+}
+
+/* Shopee — filled orange (primary channel CTA) */
+.btn-shopee {
+  background: var(--shopee);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.btn-shopee:hover {
+  background: var(--shopee-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Neutral ghost — secondary hero CTA */
+.btn-ghost {
+  background: var(--white);
+  color: var(--dark);
+  border-color: var(--cloud-200);
+  box-shadow: var(--shadow-sm);
+}
+.btn-ghost:hover {
+  background: var(--cloud-50);
+  border-color: var(--cloud-300);
+}
+
+/* TikTok — filled (rare) */
+.btn-tiktok {
+  background: var(--tiktok);
+  color: #fff;
+  border-color: var(--tiktok);
+}
+.btn-tiktok:hover { background: var(--tiktok-hover); }
+
+/* TikTok — outline */
+.btn-tiktok-outline {
+  background: var(--white);
+  color: var(--tiktok);
+  border-color: var(--cloud-300);
+  box-shadow: var(--shadow-sm);
+}
+.btn-tiktok-outline:hover {
+  background: var(--cloud-50);
+  border-color: var(--dark);
+}
+
+/* WhatsApp — filled */
+.btn-wa-filled {
+  background: var(--wa);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.btn-wa-filled:hover { background: var(--wa-hover); }
+.btn-wa-filled .channelIcon img { filter: none; }
+
+/* WhatsApp — outline */
+.btn-wa-outline {
+  background: var(--white);
+  color: var(--wa-hover);
+  border-color: var(--wa);
+  box-shadow: var(--shadow-sm);
+}
+.btn-wa-outline:hover {
+  background: rgba(37, 211, 102, 0.07);
+  border-color: var(--wa-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}

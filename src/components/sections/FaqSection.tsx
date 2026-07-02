@@ -15,8 +15,8 @@ export default function FaqSection() {
   return (
     <section className={styles.section} id="faq">
       <div className={styles.inner}>
-        <div className="section-label">— Pertanyaan Umum —</div>
-        <h2 className="section-title reveal-up">Ada yang Ingin<br /><em>Kamu Tanyakan?</em></h2>
+        <div className="section-label">Pertanyaan Umum</div>
+        <h2 className="section-title reveal-up">Masih Ragu?<br /><em>Ini Jawabannya.</em></h2>
 
         <div className={`${styles.list} reveal-up`}>
           {faqItems.map((item) => (
