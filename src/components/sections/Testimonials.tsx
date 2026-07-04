@@ -47,6 +47,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
           alt={t.name}
           width={36}
           height={36}
+          loading="lazy"
           className={styles.avatar}
         />
         <div>

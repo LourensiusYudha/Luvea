@@ -2,14 +2,21 @@
   "name": "luvea-next",
   "version": "0.1.0",
   "private": true,
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "not dead",
+    "not op_mini all"
+  ],
   "scripts": {
     "dev": "next dev",
+    "dev:clean": "rm -rf .next && next dev",
     "build": "next build",
+    "optimize-images": "bash scripts/optimize-images.sh",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
-    "motion": "^12.42.2",
     "next": "16.2.9",
     "react": "19.2.4",
     "react-dom": "19.2.4"

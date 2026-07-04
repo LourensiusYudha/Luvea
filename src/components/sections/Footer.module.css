@@ -38,7 +38,7 @@
 
 .tagline {
   font-size: .8rem;
-  color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.65);
   line-height: 1.5;
 }
 
@@ -59,7 +59,7 @@
 
 .colLinks a {
   font-size: .82rem;
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.72);
   transition: color .2s;
 }
 
@@ -103,7 +103,7 @@
 
 .copy {
   font-size: .75rem;
-  color: rgba(255,255,255,.35);
+  color: rgba(255,255,255,.58);
 }
 
 @media (min-width: 580px) {

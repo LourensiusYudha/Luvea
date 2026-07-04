@@ -6,7 +6,7 @@ import styles from './StickyCta.module.css';
 export default function StickyCta() {
   return (
     <div className={styles.sticky} id="stickyCta">
-      <a href={shopeeLink({ medium: 'sticky-cta', campaign: 'shopee' })} target="_blank" rel="noopener" className={`${styles.btn} ${styles.shopee}`}>
+      <a href={shopeeLink({ medium: 'sticky-cta', campaign: 'shopee' })} target="_blank" rel="noopener" className={`${styles.btn} ${styles.shopee}`} aria-label="Beli di Shopee - sticky bar">
         <ChannelIcon src="/images/shopee.png" />
         Shopee
       </a>

@@ -20,7 +20,7 @@ export const testimonials: Testimonial[] = [
     location: 'Yogyakarta',
     date: '12 Mei 2026',
     helpful: 23,
-    avatarUrl: '/images/testimonials/maya.jpg',
+    avatarUrl: '/images/testimonials/maya.webp',
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ export const testimonials: Testimonial[] = [
     location: 'Semarang',
     date: '3 Mei 2026',
     helpful: 14,
-    avatarUrl: '/images/testimonials/nadia.jpg',
+    avatarUrl: '/images/testimonials/nadia.webp',
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ export const testimonials: Testimonial[] = [
     location: 'Jakarta',
     date: '12 Mei 2026',
     helpful: 32,
-    avatarUrl: '/images/testimonials/salsabila.jpg',
+    avatarUrl: '/images/testimonials/salsabila.webp',
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ export const testimonials: Testimonial[] = [
     location: 'Surabaya',
     date: '8 Mei 2026',
     helpful: 29,
-    avatarUrl: '/images/testimonials/fitri.jpg',
+    avatarUrl: '/images/testimonials/fitri.webp',
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ export const testimonials: Testimonial[] = [
     location: 'Bandung',
     date: '18 Mei 2026',
     helpful: 41,
-    avatarUrl: '/images/testimonials/anisa.jpg',
+    avatarUrl: '/images/testimonials/anisa.webp',
   },
   {
     id: 6,
@@ -75,6 +75,6 @@ export const testimonials: Testimonial[] = [
     location: 'Malang',
     date: '8 Mei 2026',
     helpful: 19,
-    avatarUrl: '/images/testimonials/rina.jpg',
+    avatarUrl: '/images/testimonials/rina.webp',
   },
 ];

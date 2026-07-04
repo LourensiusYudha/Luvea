@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { IMAGES } from '@/data/images';
 import { SHOPEE_STORE_URL, TIKTOK_URL, waLink, WA_MESSAGES } from '@/data/links';
 import styles from './Footer.module.css';
 
@@ -8,14 +9,14 @@ export default function Footer() {
       <div className={styles.inner}>
         <div className={styles.col}>
           <div className={styles.brand}>
-            <Image src="/images/Luvea.png" alt="Luvea Logo" width={28} height={28} className={styles.logo} />
+            <Image src={IMAGES.logo} alt="Luvea Logo" width={28} height={28} className={styles.logo} />
             <span className={styles.brandName}>Luvea</span>
           </div>
           <p className={styles.tagline}>Sleep in Comfort, Wake in Beauty</p>
         </div>
 
         <div className={styles.col}>
-          <h4 className={styles.colTitle}>Shop</h4>
+          <p className={styles.colTitle}>Shop</p>
           <nav className={styles.colLinks} aria-label="Shop links">
             <a href="#produk">Koleksi</a>
             <a href="#ukuran">Panduan Ukuran</a>
@@ -24,7 +25,7 @@ export default function Footer() {
         </div>
 
         <div className={styles.col}>
-          <h4 className={styles.colTitle}>Help</h4>
+          <p className={styles.colTitle}>Help</p>
           <nav className={styles.colLinks} aria-label="Help links">
             <a href="#faq">FAQ</a>
             <a href="#faq">Kebijakan Retur</a>
@@ -33,7 +34,7 @@ export default function Footer() {
         </div>
 
         <div className={styles.col}>
-          <h4 className={styles.colTitle}>Ikuti Kami</h4>
+          <p className={styles.colTitle}>Ikuti Kami</p>
           <div className={styles.social}>
             <a href={SHOPEE_STORE_URL} target="_blank" rel="noopener" aria-label="Shopee" className={`${styles.socialLink} ${styles.shopee}`} title="Shopee">
               <Image src="/images/shopee.png" alt="Shopee" width={18} height={18} />

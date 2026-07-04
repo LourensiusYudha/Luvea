@@ -16,7 +16,7 @@ export default function FinalCta() {
           nikmati gratis ongkir ke seluruh Indonesia.
         </p>
         <div className={styles.btns}>
-          <a href={shopeeLink({ medium: 'final-cta', campaign: 'shopee' })} target="_blank" rel="noopener" className="btn btn-shopee btn--xl">
+          <a href={shopeeLink({ medium: 'final-cta', campaign: 'shopee' })} target="_blank" rel="noopener" className="btn btn-shopee btn--xl" aria-label="Beli di Shopee - Luvea Official Store">
             <ChannelIcon src="/images/shopee.png" size={20} />
             Beli di Shopee
           </a>

@@ -5,7 +5,7 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://luvea.id';
 
 export const WHATSAPP_NUMBER = '6285113131023';
 export const TIKTOK_URL =
-  'https://www.tiktok.com/@heyluvea?_r=1&_t=ZS-97gcdEBptbg';
+  'https://www.tiktok.com/@heyluvea?_r=1&_t=ZS-97kPGMXIjo4';
 export const SHOPEE_STORE_URL = 'https://shopee.co.id/luvea.official';
 
 // Prewritten WhatsApp opening messages (plain text, encoded by `waLink`).

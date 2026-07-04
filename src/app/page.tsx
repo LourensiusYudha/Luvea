@@ -1,36 +1,42 @@
+import dynamic from 'next/dynamic';
 import { testimonials } from '@/data/testimonials';
 import { FEATURES } from '@/data/links';
 import Nav from '@/components/layout/Nav';
 import Hero from '@/components/sections/Hero';
-import ProblemAwareness from '@/components/sections/ProblemAwareness';
-import Testimonials from '@/components/sections/Testimonials';
-import ProductsSection from '@/components/sections/ProductsSection';
-import SizeGuide from '@/components/sections/SizeGuide';
-import ComparisonTable from '@/components/sections/ComparisonTable';
-import Advantages from '@/components/sections/Advantages';
 import BannerStrip from '@/components/sections/BannerStrip';
-import FinalCta from '@/components/sections/FinalCta';
-import FaqSection from '@/components/sections/FaqSection';
 import Footer from '@/components/sections/Footer';
-import StickyCta from '@/components/sections/StickyCta';
-import SocialProofPopup from '@/components/ui/SocialProofPopup';
-import WaFloat from '@/components/ui/WaFloat';
-import Reveal from '@/components/ui/Reveal';
+import ScrollRevealWrapper from '@/components/ui/ScrollRevealWrapper';
+
+const ProblemAwareness = dynamic(() => import('@/components/sections/ProblemAwareness'));
+const ProductsSection = dynamic(() => import('@/components/sections/ProductsSection'));
+const SizeGuide = dynamic(() => import('@/components/sections/SizeGuide'));
+const Advantages = dynamic(() => import('@/components/sections/Advantages'));
+const ComparisonTable = dynamic(() => import('@/components/sections/ComparisonTable'));
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials'));
+const FinalCta = dynamic(() => import('@/components/sections/FinalCta'));
+const FaqSection = dynamic(() => import('@/components/sections/FaqSection'));
+const StickyCta = dynamic(() => import('@/components/sections/StickyCta'));
+const WaFloat = dynamic(() => import('@/components/ui/WaFloat'));
+const SocialProofPopup = dynamic(() => import('@/components/ui/SocialProofPopup'));
 
 export default function Home() {
   return (
     <>
       <BannerStrip />
       <Nav />
-      <Hero />
-      <Reveal><ProblemAwareness /></Reveal>
-      <Reveal><ProductsSection /></Reveal>
-      <Reveal><SizeGuide /></Reveal>
-      <Reveal><Advantages /></Reveal>
-      <Reveal><ComparisonTable /></Reveal>
-      <Reveal><Testimonials testimonials={testimonials} /></Reveal>
-      <Reveal><FinalCta /></Reveal>
-      <Reveal><FaqSection /></Reveal>
+      <main id="main-content">
+        <ScrollRevealWrapper>
+          <Hero />
+          <ProblemAwareness />
+          <ProductsSection />
+          <SizeGuide />
+          <Advantages />
+          <ComparisonTable />
+          <Testimonials testimonials={testimonials} />
+          <FinalCta />
+          <FaqSection />
+        </ScrollRevealWrapper>
+      </main>
       <Footer />
       <StickyCta />
       <WaFloat />

@@ -1,60 +1,40 @@
-'use client';
-
 import Image from 'next/image';
-import { motion, useReducedMotion, type Variants } from 'motion/react';
 import { shopeeLink, STATS } from '@/data/links';
+import { IMAGES, testimonialAvatar } from '@/data/images';
 import ChannelIcon from '@/components/ui/ChannelIcon';
 import styles from './Hero.module.css';
 
-const container: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-};
-
 const avatars = [
-  { src: '/images/testimonials/maya.jpg', name: 'Maya' },
-  { src: '/images/testimonials/nadia.jpg', name: 'Nadia' },
-  { src: '/images/testimonials/salsabila.jpg', name: 'Salsabila' },
-  { src: '/images/testimonials/anisa.jpg', name: 'Anisa' },
+  { src: testimonialAvatar('maya'), name: 'Maya' },
+  { src: testimonialAvatar('nadia'), name: 'Nadia' },
+  { src: testimonialAvatar('salsabila'), name: 'Salsabila' },
+  { src: testimonialAvatar('anisa'), name: 'Anisa' },
 ];
 
 export default function Hero() {
-  const reduce = useReducedMotion();
-
   return (
     <section className={styles.hero} id="hero">
       <div className={styles.inner}>
-        <motion.div
-          className={styles.content}
-          variants={container}
-          initial={reduce ? false : 'hidden'}
-          animate="show"
-        >
-          <motion.span className="eyebrow" variants={item}>
-            Piyama Rayon Grade A
-          </motion.span>
+        <div className={styles.content}>
+          <span className={`eyebrow ${styles.reveal}`}>Piyama Rayon Grade A</span>
 
-          <motion.h1 className={styles.title} variants={item}>
+          <h1 className={`${styles.title} ${styles.reveal}`}>
             Adem sepanjang hari,<br />
             <em>anggun</em> setiap saat.
-          </motion.h1>
+          </h1>
 
-          <motion.p className={styles.tagline} variants={item}>
+          <p className={`${styles.tagline} ${styles.reveal}`}>
             Rayon grade A yang lembut dan adem, cukup elegan dipakai dari kamar
             sampai menyambut tamu di depan pintu.
-          </motion.p>
+          </p>
 
-          <motion.div className={styles.ctas} variants={item}>
+          <div className={`${styles.ctas} ${styles.reveal}`}>
             <a
               href={shopeeLink({ medium: 'hero', campaign: 'shopee' })}
               target="_blank"
               rel="noopener"
               className="btn btn--lg btn-shopee"
+              aria-label="Belanja Sekarang di Shopee"
             >
               <ChannelIcon src="/images/shopee.png" />
               Belanja Sekarang
@@ -62,13 +42,13 @@ export default function Hero() {
             <a href="#produk" className="btn btn--lg btn-ghost">
               Lihat Koleksi
             </a>
-          </motion.div>
+          </div>
 
-          <motion.div className={styles.proof} variants={item}>
+          <div className={`${styles.proof} ${styles.reveal}`}>
             <div className={styles.avatars}>
               {avatars.map((a) => (
                 <div key={a.name} className={styles.av}>
-                  <Image src={a.src} alt={a.name} width={36} height={36} />
+                  <Image src={a.src} alt={a.name} width={36} height={36} loading="lazy" />
                 </div>
               ))}
             </div>
@@ -78,49 +58,35 @@ export default function Hero() {
                 Dipercaya <strong>{STATS.customers}</strong> pelanggan
               </span>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.div
-          className={styles.visual}
-          initial={reduce ? false : { opacity: 0, scale: 0.96, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        >
+        <div className={styles.visual}>
           <div className={styles.imgFrame}>
             <Image
-              src="/images/sekar.png"
+              src={IMAGES.hero}
               alt="Piyama Luvea rayon grade A"
-              width={520}
-              height={650}
+              width={880}
+              height={880}
               priority
+              sizes="(max-width: 768px) 100vw, 440px"
               className={styles.heroImg}
             />
           </div>
 
-          <motion.div
-            className={styles.floatCard}
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-          >
+          <div className={`${styles.floatCard} ${styles.floatIn}`}>
             <span className={styles.floatStars}>★★★★★</span>
             <div>
               <strong>{STATS.rating}/5</strong>
               <small>{STATS.reviews} ulasan asli</small>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className={styles.pricePill}
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.75 }}
-          >
+          <div className={`${styles.pricePill} ${styles.pillIn}`}>
             <small>Mulai dari</small>
             <strong>Rp119.000</strong>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

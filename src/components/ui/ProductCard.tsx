@@ -36,8 +36,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         <Image
           src={product.image}
           alt={product.name}
-          width={400}
-          height={400}
+          width={588}
+          height={588}
+          sizes="(max-width: 768px) 100vw, 400px"
+          loading={product.featured ? 'eager' : 'lazy'}
           style={{ objectFit: 'contain' }}
         />
       </div>
@@ -57,6 +59,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           target="_blank"
           rel="noopener"
           className={`btn btn-shopee ${styles.btn} ${product.featured ? styles.btnFeatured : ''}`}
+          aria-label={`Beli ${product.name} di Shopee`}
         >
           <ChannelIcon src="/images/shopee.png" />
           {product.featured ? 'Ambil Promo Sekarang' : 'Beli di Shopee'}

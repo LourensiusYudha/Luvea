@@ -251,7 +251,27 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-color: var(--wa-hover);
 }
 
+.reveal-up,
+.reveal-card {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal-card {
+  transform: translateY(20px);
+}
+.reveal-up.in-view,
+.reveal-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .reveal-up,
+  .reveal-card {
+    opacity: 1;
+    transform: none;
+  }
 }
