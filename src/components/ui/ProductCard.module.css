@@ -32,17 +32,22 @@
 .badgeMint  { background: var(--cloud-600); }
 
 .imgWrap {
-  border-radius: var(--radius); overflow: hidden;
-  aspect-ratio: 1; margin-bottom: 18px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 18px;
   position: relative;
   background: var(--rose-50);
   border: 1px solid var(--rose-100);
 }
-.imgWrap img {
-  width: 100%; height: 100%; object-fit: contain;
+.productImg {
+  object-fit: cover;
+  object-position: center top;
   transition: transform .6s var(--ease);
 }
-.card:hover .imgWrap img { transform: scale(1.05); }
+.card:hover .productImg {
+  transform: scale(1.05);
+}
 
 .body {
   display: flex;

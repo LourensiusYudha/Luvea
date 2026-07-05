@@ -27,8 +27,8 @@ export interface Product {
 export const products: Product[] = [
   {
     id: 'product-pink',
-    name: 'Luvea Blossom Pink',
-    series: 'Soft & Dreamy Series',
+    name: 'Aluna Series',
+    series: 'Lembut & Anggun Series',
     price: 119000,
     originalPrice: 149000,
     image: '/images/luvea_piyama_1.webp',
@@ -44,8 +44,8 @@ export const products: Product[] = [
   },
   {
     id: 'product-blue',
-    name: 'Luvea Sky Blue',
-    series: 'Cool & Cozy Series',
+    name: 'Midnight Bloom',
+    series: 'Floral Malam Elegan Series',
     price: 120000,
     originalPrice: 152000,
     image: '/images/luvea_piyama_2.webp',
@@ -62,9 +62,9 @@ export const products: Product[] = [
   },
   {
     id: 'product-mint',
-    name: 'Luvea Fresh Mint',
-    series: 'Fresh & Light Series',
-    price: 129000,
+    name: 'Ruffle Series',
+    series: 'Ringan & Feminim Series',
+    price: 118000,
     originalPrice: 149000,
     image: '/images/luvea_piyama_3.webp',
     badge: 'Favorit ✦',

@@ -12,12 +12,6 @@ interface ProductCardProps {
   product: Product;
 }
 
-const gradientMap: Record<string, string> = {
-  pink: 'linear-gradient(135deg, #F9C6D0 0%, #FFE8EF 100%)',
-  blue: 'linear-gradient(135deg, #C6D4F9 0%, #EEF0FF 100%)',
-  mint: 'linear-gradient(135deg, #D4F9C6 0%, #EDFAF2 100%)',
-};
-
 const badgeClassMap: Record<string, string> = {
   pink: '',
   blue: styles.badgeBlue,
@@ -32,15 +26,14 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <article className={cardClass} data-color={product.color} id={product.id}>
       <div className={badgeClass}>{product.badge}</div>
-      <div className={styles.imgWrap} style={{ background: gradientMap[product.color] }}>
+      <div className={styles.imgWrap}>
         <Image
           src={product.image}
           alt={product.name}
-          width={588}
-          height={588}
+          fill
           sizes="(max-width: 768px) 100vw, 400px"
           loading={product.featured ? 'eager' : 'lazy'}
-          style={{ objectFit: 'contain' }}
+          className={styles.productImg}
         />
       </div>
       <div className={styles.body}>

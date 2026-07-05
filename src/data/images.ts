@@ -1,6 +1,6 @@
 /** WebP paths for display-optimized assets (generated via `npm run optimize-images`). */
 export const IMAGES = {
-  hero: '/images/sekar.webp',
+  hero: '/images/sekar.svg',
   logo: '/images/Luvea.webp',
   products: {
     pink: '/images/luvea_piyama_1.webp',

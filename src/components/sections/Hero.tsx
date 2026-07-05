@@ -62,17 +62,15 @@ export default function Hero() {
         </div>
 
         <div className={styles.visual}>
-          <div className={styles.imgFrame}>
-            <Image
-              src={IMAGES.hero}
-              alt="Piyama Luvea rayon grade A"
-              width={880}
-              height={880}
-              priority
-              sizes="(max-width: 768px) 100vw, 440px"
-              className={styles.heroImg}
-            />
-          </div>
+          <Image
+            src={IMAGES.hero}
+            alt="Piyama Luvea rayon grade A"
+            width={1040}
+            height={1040}
+            priority
+            sizes="(max-width: 900px) 560px, 520px"
+            className={styles.heroImg}
+          />
 
           <div className={`${styles.floatCard} ${styles.floatIn}`}>
             <span className={styles.floatStars}>★★★★★</span>
@@ -82,9 +80,14 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className={`${styles.pricePill} ${styles.pillIn}`}>
-            <small>Mulai dari</small>
-            <strong>Rp119.000</strong>
+          <div className={`${styles.logoBadge} ${styles.pillIn}`}>
+            <Image
+              src={IMAGES.logo}
+              alt="Luvea"
+              width={103}
+              height={40}
+              style={{ width: 'auto', height: '32px' }}
+            />
           </div>
         </div>
       </div>

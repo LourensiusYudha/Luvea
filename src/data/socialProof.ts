@@ -4,7 +4,7 @@ export const products = [
   '1 Set Piyama Luvea',
   '2 Set Piyama Luvea',
   '3 Set Piyama Luvea',
-  '1 Set Luvea Blossom Pink',
-  '1 Set Luvea Sky Blue',
-  '2 Set Luvea Fresh Mint',
+  '1 Set Aluna Series',
+  '1 Set Midnight Bloom',
+  '2 Set Ruffle Series',
 ];

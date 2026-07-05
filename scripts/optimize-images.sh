@@ -19,11 +19,13 @@ optimize() {
   echo "$(basename "$output") ($(du -k "$output" | cut -f1) KB)"
 }
 
-optimize "$IMG/sekar.png" "$IMG/sekar.webp" 880 82
+optimize "$IMG/sekar.png" "$IMG/sekar.webp" 1100 82
 optimize "$IMG/luvea_piyama_1.png" "$IMG/luvea_piyama_1.webp" 588 80
 optimize "$IMG/luvea_piyama_2.png" "$IMG/luvea_piyama_2.webp" 588 80
 optimize "$IMG/luvea_piyama_3.png" "$IMG/luvea_piyama_3.webp" 588 80
-optimize "$IMG/Luvea.png" "$IMG/Luvea.webp" 206 85
+# Logo: preserve alpha (skip sips — it can flatten transparency)
+cwebp -quiet -q 90 -resize 206 0 "$IMG/Luvea.png" -o "$IMG/Luvea.webp"
+echo "Luvea.webp ($(du -k "$IMG/Luvea.webp" | cut -f1) KB, with alpha)"
 optimize "$IMG/kain_adem.png" "$IMG/kain_adem.webp" 640 78
 optimize "$IMG/kelembutan_serat.png" "$IMG/kelembutan_serat.webp" 640 78
 optimize "$IMG/kancing_premium.png" "$IMG/kancing_premium.webp" 640 78
