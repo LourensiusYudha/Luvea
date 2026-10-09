@@ -28,6 +28,6 @@ export const faqItems: FaqItem[] = [
   {
     id: 5,
     question: 'Apakah bahannya panas?',
-    answer: 'Bahan rayon Luvea terasa adem, lembut, dan breathable, Jadi nyaman dipakai tidur di cuaca hangat.',
+    answer: 'Bahan rayon Luvea terasa adem, lembut, dan breathable, jadi nyaman dipakai tidur di cuaca hangat.',
   },
 ];  
