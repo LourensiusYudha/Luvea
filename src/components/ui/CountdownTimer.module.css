@@ -15,5 +15,5 @@
   min-width: 40px;
 }
 .unit span { font-size: 1.05rem; font-weight: 600; font-family: var(--font-body); line-height: 1; font-variant-numeric: tabular-nums; }
-.unit small { font-size: .58rem; opacity: .7; margin-top: 3px; text-transform: uppercase; letter-spacing: .05em; }
+.unit small { font-size: .72rem; opacity: .7; margin-top: 3px; text-transform: uppercase; letter-spacing: .05em; }
 .sep { font-size: .9rem; font-weight: 700; color: var(--rose-400); }

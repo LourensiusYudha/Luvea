@@ -17,7 +17,7 @@
 .stars4 { color: var(--rating); font-size: .95rem; }
 .starEmpty { color: var(--cloud-200); }
 .verified {
-  font-size: .7rem; font-weight: 600; color: var(--dark);
+  font-size: .72rem; font-weight: 600; color: var(--dark);
   background: var(--pink-100); padding: 3px 10px; border-radius: 0px;
 }
 .quote {
@@ -38,8 +38,8 @@
   flex-shrink: 0;
 }
 .footer strong { display: block; font-size: .86rem; color: var(--dark); }
-.footer span { font-size: .74rem; color: var(--light); }
+.footer span { font-size: .8rem; color: var(--light); }
 .helpful {
-  font-size: .74rem; color: var(--light);
+  font-size: .8rem; color: var(--light);
   padding-top: 8px; border-top: 1px solid var(--pink-100);
 }

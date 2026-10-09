@@ -21,7 +21,7 @@
 
 .badge {
   position: absolute; top: 22px; left: 22px; z-index: 2;
-  font-size: .62rem; font-weight: 700; letter-spacing: .12em;
+  font-size: .72rem; font-weight: 700; letter-spacing: .12em;
   text-transform: uppercase;
   padding: 6px 12px; border-radius: 2px;
   background: var(--dark); color: #fff;
@@ -69,7 +69,7 @@
 .sale  { font-size: 1.25rem; font-weight: 700; color: var(--dark); }
 .ori   { font-size: .82rem; color: var(--light); text-decoration: line-through; }
 .disc  {
-  font-size: .64rem; font-weight: 700;
+  font-size: .72rem; font-weight: 700;
   background: var(--cloud-50); color: var(--cloud-700);
   border: 1px solid var(--cloud-200);
   padding: 3px 8px; border-radius: 2px;
@@ -78,7 +78,7 @@
 
 .material {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: .68rem; font-weight: 600; color: var(--cloud-600);
+  font-size: .72rem; font-weight: 600; color: var(--cloud-600);
   letter-spacing: .1em; text-transform: uppercase;
   background: var(--cloud-50);
   border: 1px solid var(--cloud-100);

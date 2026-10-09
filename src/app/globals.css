@@ -105,7 +105,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 ::-webkit-scrollbar-thumb { background: var(--cloud-300); border-radius: var(--radius-pill); }
 
 .section-label {
-  font-size: .68rem;
+  font-size: .72rem;
   letter-spacing: .34em;
   text-transform: uppercase;
   color: var(--cloud-500);
@@ -152,7 +152,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: .66rem;
+  font-size: .72rem;
   font-weight: 700;
   letter-spacing: .28em;
   text-transform: uppercase;

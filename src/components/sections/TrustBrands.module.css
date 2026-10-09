@@ -32,5 +32,5 @@
 @media (min-width: 900px) {
   .section { padding: 44px 48px; }
   .inner { justify-content: space-between; gap: 24px; }
-  .item { font-size: .68rem; }
+  .item { font-size: .72rem; }
 }

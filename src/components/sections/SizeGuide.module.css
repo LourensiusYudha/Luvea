@@ -28,7 +28,7 @@
 }
 .badge {
   display: inline-block;
-  font-size: .58rem; font-weight: 700;
+  font-size: .72rem; font-weight: 700;
   background: var(--dark); color: #fff;
   padding: 4px 10px; border-radius: 2px;
   margin-bottom: 10px;
