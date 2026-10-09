@@ -169,6 +169,17 @@
 .table tbody tr:hover td { background: var(--cloud-50); }
 .table tbody tr:hover .colLuvea { background: var(--cloud-100); }
 
+/* Mobile: fit all three columns so the Luvea column is never clipped */
+@media (max-width: 479px) {
+  .table { min-width: 0; font-size: .84rem; }
+  .table th,
+  .table td { padding: 12px 10px; vertical-align: top; }
+  .table th:first-child,
+  .table td:first-child { width: 26%; }
+  .iconBad,
+  .iconGood { width: auto; margin-right: 4px; }
+}
+
 @media (min-width: 900px) {
   .compare { margin-top: 72px; }
 }
