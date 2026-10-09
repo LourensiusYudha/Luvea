@@ -1,6 +1,6 @@
 .section {
   padding: 96px 20px;
-  background: var(--off-white);
+  background: var(--white);
 }
 
 .inner { max-width: 1120px; margin: 0 auto; }
@@ -15,10 +15,10 @@
 
 .card {
   background: #fff;
-  border: 1px solid var(--rose-100);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--cloud-100);
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
   transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
   display: flex;
   flex-direction: column;
@@ -40,19 +40,21 @@
   background: var(--rose-50);
 }
 
-.imgWrap img { border-radius: var(--radius-sm); }
+.imgWrap img { border-radius: 2px; }
 
 .body {
   padding: 20px 22px 24px;
 }
 
 .body h3 {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: .92rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
   color: var(--dark);
-  margin-bottom: 8px;
-  line-height: 1.15;
+  margin-bottom: 10px;
+  line-height: 1.25;
 }
 
 .body p {
@@ -80,4 +82,93 @@
     max-width: 1120px;
     gap: 22px;
   }
+}
+
+.compare {
+  margin-top: 56px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.compareTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.compareSub {
+  font-size: .92rem;
+  color: var(--mid);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border-radius: 6px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--cloud-200);
+  text-align: left;
+}
+
+.table {
+  width: 100%;
+  min-width: 380px;
+  border-collapse: collapse;
+  background: var(--white);
+  font-size: .92rem;
+}
+
+.table th,
+.table td {
+  padding: 16px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--cloud-100);
+}
+
+.table thead th {
+  font-weight: 600;
+  font-size: .9rem;
+  background: var(--cloud-50);
+  color: var(--dark);
+}
+
+.colBiasa {
+  color: var(--light);
+  background: #fff;
+}
+
+.colLuvea {
+  background: var(--beige);
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.iconBad,
+.iconGood {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  margin-right: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.iconBad { color: #9a948c; }
+.iconGood { color: var(--dark); }
+
+.table thead .colLuvea { color: var(--dark); }
+.table tbody tr:last-child td { border-bottom: none; }
+.table tbody tr:hover td { background: var(--cloud-50); }
+.table tbody tr:hover .colLuvea { background: var(--cloud-100); }
+
+@media (min-width: 900px) {
+  .compare { margin-top: 72px; }
 }

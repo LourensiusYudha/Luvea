@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { getLenis } from '@/lib/lenis';
 
 export function useNav() {
   const [open, setOpen] = useState(false);
@@ -18,8 +19,18 @@ export function useNav() {
   const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    const lenis = getLenis();
+    if (open) {
+      lenis?.stop();
+      document.body.style.overflow = 'hidden';
+    } else {
+      lenis?.start();
+      document.body.style.overflow = '';
+    }
+    return () => {
+      getLenis()?.start();
+      document.body.style.overflow = '';
+    };
   }, [open]);
 
   return { open, scrolled, toggle, close };

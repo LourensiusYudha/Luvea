@@ -1,13 +1,12 @@
 import styles from './BannerStrip.module.css';
 
 const messages = [
-  'GARANSI 100%',
-  'TERLARIS',
-  'KOLEKSI TERBARU',
-  'GRATIS ONGKIR SE-INDONESIA',
-  'RETUR 7 HARI',
-  'GARANSI 100%',
-  'TERLARIS',
+  'Gratis Ongkir se-Indonesia',
+  'Retur 7 Hari',
+  'Rayon Grade A',
+  'Gratis Ongkir se-Indonesia',
+  'Retur 7 Hari',
+  'Rayon Grade A',
 ];
 
 export default function BannerStrip() {

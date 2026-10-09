@@ -5,7 +5,7 @@ import { SwatchSelector } from './SwatchSelector';
 import { CountdownTimer } from './CountdownTimer';
 import ChannelIcon from './ChannelIcon';
 import { Product, formatPrice, getDiscount } from '@/data/products';
-import { withUtm, waLink, TIKTOK_URL, WA_MESSAGES, FEATURES } from '@/data/links';
+import { productOrderLink, tiktokLink, FEATURES } from '@/data/links';
 import styles from './ProductCard.module.css';
 
 interface ProductCardProps {
@@ -21,7 +21,6 @@ const badgeClassMap: Record<string, string> = {
 export default function ProductCard({ product }: ProductCardProps) {
   const cardClass = `${styles.card} ${product.featured ? styles.featured : ''}`;
   const badgeClass = `${styles.badge} ${badgeClassMap[product.color] || ''}`;
-  const buyUrl = withUtm(product.shopeeUrl, { medium: 'product-card', campaign: product.id });
 
   return (
     <article className={cardClass} data-color={product.color} id={product.id}>
@@ -46,32 +45,27 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
         <div className={styles.material}>Rayon Grade A</div>
         {product.featured && FEATURES.promoCountdown && <CountdownTimer />}
-        <SwatchSelector swatches={product.swatches} />
+        <SwatchSelector swatches={product.swatches} productName={product.name} />
         <a
-          href={buyUrl}
+          href={tiktokLink({ medium: 'product-card', campaign: product.id })}
           target="_blank"
           rel="noopener"
-          className={`btn btn-shopee ${styles.btn} ${product.featured ? styles.btnFeatured : ''}`}
-          aria-label={`Beli ${product.name} di Shopee`}
+          className={`btn btn-tiktok ${styles.btn} ${product.featured ? styles.btnFeatured : ''}`}
+          aria-label={`Belanja ${product.name} di TikTok Shop`}
         >
-          <ChannelIcon src="/images/shopee.png" />
-          {product.featured ? 'Ambil Promo Sekarang' : 'Beli di Shopee'}
+          <ChannelIcon src="/images/tiktok.png" />
+          {product.featured ? 'Belanja Sekarang' : 'Belanja di TikTok Shop'}
         </a>
         <div className={styles.altChannels}>
-          <span className={styles.altLabel}>Juga tersedia di</span>
-          <a href={TIKTOK_URL} target="_blank" rel="noopener" className={styles.altLink} aria-label="TikTok Shop">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.98a8.27 8.27 0 004.84 1.55V7.07a4.85 4.85 0 01-1.07-.38z"/>
-            </svg>
-          </a>
           <a
-            href={waLink(WA_MESSAGES.order)}
+            href={productOrderLink(product.name)}
             target="_blank"
             rel="noopener"
-            className={styles.altLink}
-            aria-label="WhatsApp"
+            className={styles.waLink}
+            aria-label={`Tanya ${product.name} via WhatsApp`}
           >
-            <Image src="/images/whatsapp.png" alt="WA" width={14} height={14} />
+            <ChannelIcon src="/images/whatsapp.png" size={14} />
+            Tanya via WhatsApp
           </a>
         </div>
       </div>

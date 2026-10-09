@@ -1,15 +1,20 @@
 :root {
-  /* Soft Cloud — bone white & cool light gray */
-  --bone: #faf9f7;
-  --cloud-50: #f4f5f7;
-  --cloud-100: #eceef2;
-  --cloud-200: #dfe2e8;
-  --cloud-300: #c4c9d2;
-  --cloud-400: #949aa6;
-  --cloud-500: #64748b;
-  --cloud-600: #475569;
-  --cloud-700: #334155;
-  --cloud-800: #1e293b;
+  /* Quiet Luxury — cream, beige, charcoal */
+  --cream: #faf9f6;
+  --beige: #f3eee7;
+  --bone: var(--cream);
+  --off-white: var(--cream);
+  --blush-bg: var(--beige);
+
+  --cloud-50: #f3eee7;
+  --cloud-100: #ebe5dc;
+  --cloud-200: #ddd6cb;
+  --cloud-300: #c9c0b4;
+  --cloud-400: #9a948c;
+  --cloud-500: #6b6560;
+  --cloud-600: #4a4640;
+  --cloud-700: #2e2b27;
+  --cloud-800: #1a1a1a;
 
   /* Accent aliases (existing modules keep working) */
   --rose-50: var(--cloud-50);
@@ -34,26 +39,24 @@
   --lavender-500: var(--cloud-600);
   --mint-100: var(--cloud-50);
   --mint-400: var(--cloud-700);
-  --gold-100: #f7f6f3;
-  --gold-200: #ebe8e1;
-  --gold-500: #9a8f7a;
-  --gold-600: #7a7160;
+  --gold-100: #f7f2e8;
+  --gold-200: #ebe3d4;
+  --gold-500: #c9a227;
+  --gold-600: #a8861e;
 
   /* Neutrals */
   --white: #ffffff;
-  --off-white: var(--bone);
-  --blush-bg: #f3f4f6;
-  --dark: #1e293b;
-  --mid: #64748b;
-  --light: #94a3b8;
+  --dark: #1a1a1a;
+  --mid: #6b6560;
+  --light: #9a948c;
 
   /* Marketplace brand colors */
   --shopee: #ee4d2d;
   --shopee-hover: #d73211;
   --wa: #25d366;
   --wa-hover: #1da851;
-  --tiktok: #010101;
-  --tiktok-hover: #1a1a1a;
+  --tiktok: #1a1a1a;
+  --tiktok-hover: #2e2b27;
 
   /* Shape */
   --radius: 18px;
@@ -61,19 +64,28 @@
   --radius-sm: 12px;
   --radius-pill: 999px;
 
-  /* Cool gray-tinted elevation */
-  --shadow-sm: 0 2px 12px rgba(30, 41, 59, 0.05);
-  --shadow-md: 0 14px 38px rgba(30, 41, 59, 0.07);
-  --shadow-lg: 0 30px 70px rgba(30, 41, 59, 0.1);
+  /* Warm-tinted elevation */
+  --shadow-sm: 0 2px 12px rgba(26, 26, 26, 0.05);
+  --shadow-md: 0 14px 38px rgba(26, 26, 26, 0.07);
+  --shadow-lg: 0 30px 70px rgba(26, 26, 26, 0.09);
 
   --nav-h: 72px;
   --topbar-h: 40px;
+  --accent: #eab308;
+  --rating: #eab308;
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+/* Lenis momentum scrolling */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
 body {
   font-family: var(--font-body);
   background: var(--bone);
@@ -93,35 +105,45 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 ::-webkit-scrollbar-thumb { background: var(--cloud-300); border-radius: var(--radius-pill); }
 
 .section-label {
-  font-size: .7rem;
-  letter-spacing: .32em;
+  font-size: .68rem;
+  letter-spacing: .34em;
   text-transform: uppercase;
-  color: var(--cloud-600);
+  color: var(--cloud-500);
   text-align: center;
-  margin-bottom: 18px;
-  font-weight: 600;
+  margin-bottom: 14px;
+  font-weight: 700;
 }
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+  font-size: clamp(2rem, 4.8vw, 3.4rem);
   font-weight: 500;
-  line-height: 1.08;
+  line-height: 1.14;
   text-align: center;
   color: var(--dark);
   margin-bottom: 18px;
-  letter-spacing: -0.01em;
+  letter-spacing: .01em;
+  text-transform: none;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 46px;
+  height: 2px;
+  background: var(--dark);
+  margin: 20px auto 0;
+  opacity: .85;
 }
 .section-title em {
-  font-style: italic;
-  color: var(--cloud-600);
-  line-height: 1.15;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--cloud-500);
 }
 .section-sub {
-  font-size: 1rem;
+  font-size: .98rem;
   color: var(--mid);
   text-align: center;
-  max-width: 540px;
+  max-width: 560px;
   margin: 0 auto 52px;
   line-height: 1.75;
 }
@@ -129,17 +151,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .22em;
+  gap: 10px;
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .28em;
   text-transform: uppercase;
-  color: var(--cloud-700);
-  background: var(--cloud-50);
-  border: 1px solid var(--cloud-200);
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  margin-bottom: 22px;
+  color: var(--cloud-500);
+  margin-bottom: 20px;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--cloud-400);
 }
 
 /* Buttons */
@@ -198,6 +222,27 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: var(--shadow-lg);
 }
 
+/* Squared corners — editorial reference look */
+.btn--rect { border-radius: 2px; }
+
+/* Dark — primary editorial CTA (SHOP NOW / PESAN) */
+.btn-dark {
+  background: var(--dark);
+  color: #fff;
+  border-color: var(--dark);
+  box-shadow: var(--shadow-sm);
+}
+.btn-dark:hover { background: #2e2b27; box-shadow: var(--shadow-md); }
+.btn-dark .channelIcon img { filter: none; }
+
+/* Outline dark — secondary editorial CTA */
+.btn-outline-dark {
+  background: transparent;
+  color: var(--dark);
+  border-color: var(--cloud-300);
+}
+.btn-outline-dark:hover { border-color: var(--dark); background: var(--cloud-50); }
+
 /* Neutral ghost — secondary hero CTA */
 .btn-ghost {
   background: var(--white);
@@ -210,13 +255,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-color: var(--cloud-300);
 }
 
-/* TikTok — filled (rare) */
+/* TikTok — primary white */
 .btn-tiktok {
-  background: var(--tiktok);
-  color: #fff;
-  border-color: var(--tiktok);
+  background: var(--white);
+  color: var(--tiktok);
+  border-color: var(--cloud-300);
+  box-shadow: var(--shadow-sm);
 }
-.btn-tiktok:hover { background: var(--tiktok-hover); }
+.btn-tiktok:hover {
+  background: var(--cloud-50);
+  border-color: var(--dark);
+}
+.btn-tiktok .channelIcon img { filter: brightness(0) saturate(100%); }
 
 /* TikTok — outline */
 .btn-tiktok-outline {

@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Cormorant_Garamond } from 'next/font/google';
 import { SITE_URL } from '@/data/links';
 import JsonLd from '@/components/seo/JsonLd';
 import Analytics from '@/components/seo/Analytics';
+import SmoothScroll from '@/components/ui/SmoothScroll';
 import './globals.css';
 
 const jakarta = Plus_Jakarta_Sans({
@@ -22,7 +23,7 @@ const cormorant = Cormorant_Garamond({
 
 const title = 'Luvea — Piyama Rayon Grade A Adem & Elegan';
 const description =
-  'Piyama wanita berbahan rayon grade A: adem, lembut, dan elegan dipakai di rumah. Tersedia di Shopee, TikTok Shop, dan WhatsApp.';
+  'Piyama wanita berbahan rayon grade A: adem, lembut, dan elegan. Belanja di TikTok Shop atau tanya via WhatsApp.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -53,9 +54,9 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: '/images/sekar.png',
+        url: '/images/hero-og.webp',
         width: 800,
-        height: 1000,
+        height: 1035,
         alt: 'Piyama Luvea rayon grade A',
       },
     ],
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title,
     description,
-    images: ['/images/sekar.png'],
+    images: ['/images/hero-og.webp'],
   },
   robots: {
     index: true,
@@ -80,7 +81,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${jakarta.variable} ${cormorant.variable}`}>
+      <head>
+        <link rel="preload" as="image" href="/images/hero.webp" type="image/webp" />
+      </head>
       <body>
+        <SmoothScroll />
         {children}
         <JsonLd />
         <Analytics />

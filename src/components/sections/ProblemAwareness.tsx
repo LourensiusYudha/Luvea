@@ -26,6 +26,10 @@ export default function ProblemAwareness() {
         </div>
         <div className={`${styles.solution} reveal-up`}>
           <p><strong>Luvea hadir dengan bahan rayon grade A</strong> yang adem, lembut, dan tetap terlihat cantik dipakai di rumah.</p>
+          <a href="#produk" className={styles.solutionCta}>
+            Lihat Koleksi Piyama
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>

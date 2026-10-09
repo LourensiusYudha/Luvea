@@ -13,7 +13,7 @@ export const faqItems: FaqItem[] = [
   {
     id: 2,
     question: 'Apakah bisa COD?',
-    answer: 'Bisa, untuk pembelian melalui marketplace yang mendukung fitur COD seperti Shopee.',
+    answer: 'Untuk saat ini pesan via TikTok Shop atau WhatsApp. Detail pembayaran dan pengiriman dikonfirmasi lewat chat admin.',
   },
   {
     id: 3,

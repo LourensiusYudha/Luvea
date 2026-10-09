@@ -1,4 +1,4 @@
-import { SITE_URL, SHOPEE_STORE_URL, TIKTOK_URL, STATS } from '@/data/links';
+import { SITE_URL, TIKTOK_URL, tiktokLink, STATS } from '@/data/links';
 import { products } from '@/data/products';
 
 export default function JsonLd() {
@@ -10,7 +10,7 @@ export default function JsonLd() {
     logo: `${SITE_URL}/images/Luvea.png`,
     description:
       'Luvea — piyama wanita berbahan rayon grade A yang adem, lembut, dan elegan.',
-    sameAs: [SHOPEE_STORE_URL, TIKTOK_URL],
+    sameAs: [TIKTOK_URL],
   };
 
   const aggregateRating = {
@@ -38,7 +38,7 @@ export default function JsonLd() {
           price: p.price,
           priceCurrency: 'IDR',
           availability: 'https://schema.org/InStock',
-          url: p.shopeeUrl,
+          url: tiktokLink({ medium: 'schema', campaign: p.id }),
         },
       },
     })),

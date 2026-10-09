@@ -1,19 +1,13 @@
 import Image from 'next/image';
-import { shopeeLink, STATS } from '@/data/links';
-import { IMAGES, testimonialAvatar } from '@/data/images';
-import ChannelIcon from '@/components/ui/ChannelIcon';
+import { tiktokLink, waLink, WA_MESSAGES } from '@/data/links';
+import { IMAGES } from '@/data/images';
 import styles from './Hero.module.css';
-
-const avatars = [
-  { src: testimonialAvatar('maya'), name: 'Maya' },
-  { src: testimonialAvatar('nadia'), name: 'Nadia' },
-  { src: testimonialAvatar('salsabila'), name: 'Salsabila' },
-  { src: testimonialAvatar('anisa'), name: 'Anisa' },
-];
 
 export default function Hero() {
   return (
     <section className={styles.hero} id="hero">
+      <span className={styles.watermark} aria-hidden="true">LUVEA</span>
+
       <div className={styles.inner}>
         <div className={styles.content}>
           <span className={`eyebrow ${styles.reveal}`}>Piyama Rayon Grade A</span>
@@ -28,66 +22,58 @@ export default function Hero() {
             sampai menyambut tamu di depan pintu.
           </p>
 
+          <a
+            href="#produk"
+            className={`${styles.exploreLink} ${styles.reveal}`}
+          >
+            Lihat Semua Koleksi Piyama
+          </a>
+
           <div className={`${styles.ctas} ${styles.reveal}`}>
             <a
-              href={shopeeLink({ medium: 'hero', campaign: 'shopee' })}
+              href={tiktokLink({ medium: 'hero', campaign: 'tiktok' })}
               target="_blank"
               rel="noopener"
-              className="btn btn--lg btn-shopee"
-              aria-label="Belanja Sekarang di Shopee"
+              className={`${styles.cta} ${styles.ctaPrimary}`}
+              aria-label="Lihat Koleksi di TikTok"
             >
-              <ChannelIcon src="/images/shopee.png" />
-              Belanja Sekarang
+              <span className={styles.ctaIcon} aria-hidden="true">
+                <Image src="/images/tiktok.png" alt="" width={18} height={18} />
+              </span>
+              <span className={styles.ctaText}>Lihat Koleksi di TikTok</span>
             </a>
-            <a href="#produk" className="btn btn--lg btn-ghost">
-              Lihat Koleksi
+            <a
+              href={waLink(WA_MESSAGES.order)}
+              target="_blank"
+              rel="noopener"
+              className={`${styles.cta} ${styles.ctaSecondary}`}
+              aria-label="Pesan via WhatsApp"
+            >
+              <span className={styles.ctaIcon} aria-hidden="true">
+                <Image src="/images/whatsapp.png" alt="" width={18} height={18} />
+              </span>
+              <span className={styles.ctaText}>Tanya via WhatsApp</span>
             </a>
           </div>
 
-          <div className={`${styles.proof} ${styles.reveal}`}>
-            <div className={styles.avatars}>
-              {avatars.map((a) => (
-                <div key={a.name} className={styles.av}>
-                  <Image src={a.src} alt={a.name} width={36} height={36} loading="lazy" />
-                </div>
-              ))}
-            </div>
-            <div className={styles.proofText}>
-              <span className={styles.proofStars}>★★★★★</span>
-              <span>
-                Dipercaya <strong>{STATS.customers}</strong> pelanggan
-              </span>
-            </div>
-          </div>
+          <p className={`${styles.trustStrip} ${styles.reveal}`}>
+            Bahan rayon grade A · Jahitan flatlock · Belanja di TikTok Shop · Tanya via WhatsApp
+          </p>
         </div>
 
         <div className={styles.visual}>
           <Image
             src={IMAGES.hero}
             alt="Piyama Luvea rayon grade A"
-            width={1040}
-            height={1040}
+            width={1100}
+            height={1424}
             priority
-            sizes="(max-width: 900px) 560px, 520px"
+            sizes="(max-width: 900px) 560px, (max-width: 1200px) 640px, 760px"
             className={styles.heroImg}
           />
 
-          <div className={`${styles.floatCard} ${styles.floatIn}`}>
-            <span className={styles.floatStars}>★★★★★</span>
-            <div>
-              <strong>{STATS.rating}/5</strong>
-              <small>{STATS.reviews} ulasan asli</small>
-            </div>
-          </div>
-
-          <div className={`${styles.logoBadge} ${styles.pillIn}`}>
-            <Image
-              src={IMAGES.logo}
-              alt="Luvea"
-              width={103}
-              height={40}
-              style={{ width: 'auto', height: '32px' }}
-            />
+          <div className={`${styles.shippingBadge} ${styles.pillIn}`}>
+            Gratis Ongkir
           </div>
         </div>
       </div>

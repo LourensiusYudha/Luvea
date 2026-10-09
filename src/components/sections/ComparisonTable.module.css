@@ -8,10 +8,10 @@
 }
 .wrap {
   overflow: hidden;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  border-radius: 6px;
+  box-shadow: var(--shadow-sm);
   margin: 32px 0 36px;
-  border: 1px solid var(--rose-100);
+  border: 1px solid var(--cloud-200);
 }
 .table {
   width: 100%;

@@ -1,30 +1,30 @@
-import { withUtm } from '@/data/links';
+import { tiktokLink } from '@/data/links';
 import styles from './SwatchSelector.module.css';
 
 interface Swatch {
   color: string;
   label: string;
   targetId: string;
-  shopeeUrl: string;
 }
 
 interface SwatchSelectorProps {
   swatches: Swatch[];
+  productName: string;
   activeId?: string;
 }
 
-export function SwatchSelector({ swatches }: SwatchSelectorProps) {
+export function SwatchSelector({ swatches, productName }: SwatchSelectorProps) {
   return (
     <div className={styles.swatches}>
       {swatches.map((s) => (
         <a
           key={s.color}
-          href={withUtm(s.shopeeUrl, { medium: 'swatch', campaign: s.label.toLowerCase() })}
+          href={tiktokLink({ medium: 'swatch', campaign: `${productName}-${s.label}`.toLowerCase() })}
           target="_blank"
           rel="noopener"
           className={styles.swatch}
           style={{ backgroundColor: s.color } as React.CSSProperties}
-          title={`Beli ${s.label} di Shopee`}
+          title={`Belanja ${s.label} di TikTok Shop`}
         />
       ))}
     </div>

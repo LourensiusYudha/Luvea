@@ -7,6 +7,8 @@ export const WHATSAPP_NUMBER = '6285113131023';
 export const TIKTOK_URL =
   'https://www.tiktok.com/@heyluvea?_r=1&_t=ZS-97kPGMXIjo4';
 export const SHOPEE_STORE_URL = 'https://shopee.co.id/luvea.official';
+export const ADMIN_URL =
+  process.env.NEXT_PUBLIC_ADMIN_URL ?? 'https://admin.luvea.my.id';
 
 // Prewritten WhatsApp opening messages (plain text, encoded by `waLink`).
 export const WA_MESSAGES = {
@@ -34,12 +36,15 @@ interface FeatureFlags {
   socialProofPopup: boolean;
   scarcityCounter: boolean;
   promoCountdown: boolean;
+  /** Set true when Shopee store is live; re-enables Shopee CTAs site-wide. */
+  shopeeEnabled: boolean;
 }
 
 export const FEATURES: FeatureFlags = {
   socialProofPopup: false,
   scarcityCounter: true,
   promoCountdown: true,
+  shopeeEnabled: false,
 };
 
 export interface UtmParams {
@@ -59,6 +64,15 @@ export function withUtm(url: string, utm: UtmParams = {}): string {
 
 export function shopeeLink(utm?: UtmParams): string {
   return withUtm(SHOPEE_STORE_URL, utm);
+}
+
+export function tiktokLink(utm?: UtmParams): string {
+  return withUtm(TIKTOK_URL, utm);
+}
+
+export function productOrderLink(productName: string, variant?: string): string {
+  const detail = variant ? ` — ${variant}` : '';
+  return waLink(`${WA_MESSAGES.order} (${productName}${detail})`);
 }
 
 export function waLink(message: string): string {

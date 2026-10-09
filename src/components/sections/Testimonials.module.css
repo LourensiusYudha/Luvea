@@ -1,22 +1,11 @@
 .section {
   padding: 96px 0;
-  background: var(--off-white);
+  background: var(--beige);
   overflow: hidden;
 }
-.summary {
-  display: flex; align-items: center; justify-content: center;
-  gap: 16px;
-  background: #fff; border-radius: var(--radius-pill);
-  padding: 14px 28px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--rose-100);
-  width: fit-content; margin: 0 auto 40px;
-  flex-wrap: wrap;
+.intro {
+  margin-bottom: 40px;
 }
-.summaryStars { font-size: 1rem; letter-spacing: 2px; }
-.summaryScore strong { font-size: 1.5rem; font-weight: 700; color: var(--dark); }
-.summaryScore span  { font-size: .85rem; color: var(--light); }
-.summaryCount { font-size: .85rem; color: var(--mid); }
 
 .carousel {
   position: relative;
@@ -46,10 +35,10 @@
   width: calc(100vw - 56px);
   max-width: 340px;
   background: #fff;
-  border-radius: var(--radius-lg);
+  border-radius: 4px;
   padding: 26px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--rose-100);
+  box-shadow: none;
+  border: 1px solid var(--cloud-200);
   display: flex; flex-direction: column; gap: 12px;
   user-select: none;
 }
@@ -57,12 +46,14 @@
 .top {
   display: flex; align-items: center; justify-content: space-between;
 }
-.starsFull { color: #FAAD14; letter-spacing: 1px; font-size: .95rem; }
-.stars4 { color: #FAAD14; font-size: .95rem; }
-.starEmpty { color: #ddd; }
+.starsFull { color: var(--rating); letter-spacing: 1px; font-size: .95rem; }
+.stars4 { color: var(--rating); font-size: .95rem; }
+.starEmpty { color: var(--cloud-200); }
 .verified {
-  font-size: .68rem; font-weight: 600; color: var(--rose-600);
-  background: var(--rose-50); padding: 4px 11px; border-radius: var(--radius-pill);
+  font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--cloud-700);
+  background: var(--cloud-50); border: 1px solid var(--cloud-100);
+  padding: 4px 10px; border-radius: 2px;
 }
 .quote {
   font-size: .95rem; color: var(--dark); line-height: 1.7; font-style: normal;
@@ -94,14 +85,14 @@
 }
 .dot {
   width: 8px; height: 8px; border-radius: 50%;
-  background: var(--rose-200);
+  background: var(--cloud-300);
   border: none;
   padding: 0;
   transition: background 0.3s var(--ease), width 0.3s var(--ease);
   cursor: pointer;
 }
 .dotActive {
-  background: var(--rose-500);
+  background: var(--dark);
   width: 22px;
   border-radius: var(--radius-pill);
 }

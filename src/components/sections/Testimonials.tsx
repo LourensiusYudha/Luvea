@@ -3,7 +3,6 @@
 import { useRef, useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
 import { useCarousel } from '@/hooks/useCarousel';
-import { STATS } from '@/data/links';
 import styles from './Testimonials.module.css';
 
 interface Testimonial {
@@ -20,6 +19,7 @@ interface Testimonial {
 
 interface TestimonialsProps {
   testimonials: Testimonial[];
+  featuredId?: number;
 }
 
 function Stars({ count }: { count: number }) {
@@ -60,7 +60,14 @@ function TestimonialCard({ t }: { t: Testimonial }) {
   );
 }
 
-export default function Testimonials({ testimonials }: TestimonialsProps) {
+export default function Testimonials({ testimonials, featuredId }: TestimonialsProps) {
+  const ordered = useMemo(() => {
+    if (featuredId == null) return testimonials;
+    const idx = testimonials.findIndex((t) => t.id === featuredId);
+    if (idx <= 0) return testimonials;
+    return [testimonials[idx], ...testimonials.filter((t) => t.id !== featuredId)];
+  }, [testimonials, featuredId]);
+
   const {
     trackRef,
     index,
@@ -70,15 +77,15 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
     dragOffset,
     handleTransitionEnd,
     gap,
-  } = useCarousel(testimonials.length, 4500);
+  } = useCarousel(ordered.length, 4500);
 
   const slides = useMemo(
     () => [
-      testimonials[testimonials.length - 1],
-      ...testimonials,
-      testimonials[0],
+      ordered[ordered.length - 1],
+      ...ordered,
+      ordered[0],
     ],
-    [testimonials],
+    [ordered],
   );
 
   const [cardWidth, setCardWidth] = useState(0);
@@ -110,12 +117,10 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
     <section className={styles.section} id="testimoni">
       <div className="section-label">Kata Mereka</div>
       <h2 className="section-title reveal-up">Pembeli Nyata,<br /><em>Cerita Nyata</em></h2>
-
-      <div className={`${styles.summary} reveal-up`}>
-        <div className={styles.summaryStars}>⭐⭐⭐⭐⭐</div>
-        <div className={styles.summaryScore}><strong>{STATS.rating}</strong><span>/5</span></div>
-        <div className={styles.summaryCount}>dari <b>{STATS.reviews}</b> ulasan di Shopee</div>
-      </div>
+      <p className={`section-sub reveal-up ${styles.intro}`}>
+        Cerita ibu rumah tangga, pekerja kantoran, dan ibu menyusui yang akhirnya
+        menemukan piyama yang benar-benar nyaman.
+      </p>
 
       <div
         className={styles.carousel}
@@ -136,7 +141,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
       </div>
 
       <div className={styles.dots}>
-        {testimonials.map((_, i) => (
+        {ordered.map((_, i) => (
           <button
             key={i}
             type="button"

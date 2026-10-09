@@ -1,0 +1,198 @@
+.section {
+  background: var(--white);
+  padding: 24px 20px 36px;
+}
+
+.grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--cloud-500);
+  margin-bottom: 14px;
+}
+
+/* Text-only banner */
+.plain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 260px;
+  padding: 40px;
+  background: var(--cloud-50);
+  border: 1px solid var(--cloud-100);
+  border-radius: 4px;
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.plain:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.plainTitle {
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.04;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 14px;
+}
+.plainTitle em { font-style: normal; font-weight: 300; color: var(--cloud-500); }
+
+.plainSub {
+  font-size: .92rem;
+  line-height: 1.6;
+  color: var(--mid);
+  margin-bottom: 26px;
+  max-width: 300px;
+}
+
+.plainCta {
+  align-self: flex-start;
+  padding: 13px 28px;
+  background: var(--dark);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background .3s var(--ease);
+}
+.plain:hover .plainCta { background: #2e2b27; }
+
+/* Dotted-border banner — reference right promo */
+.dotted {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 320px;
+  background: var(--white);
+  border: 2px dashed var(--cloud-300);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform .5s var(--ease), border-color .5s var(--ease);
+}
+.dotted:hover {
+  transform: translateY(-4px);
+  border-color: var(--cloud-400);
+}
+
+.dottedCopy {
+  padding: 36px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dottedTitle {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  line-height: 1.08;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.dottedSub {
+  font-size: .88rem;
+  line-height: 1.6;
+  color: var(--mid);
+  margin-bottom: 18px;
+  max-width: 280px;
+}
+
+.coupon {
+  align-self: flex-start;
+  padding: 10px 18px;
+  border: 2px dashed var(--cloud-400);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--dark);
+  background: var(--cloud-50);
+}
+
+.dottedVisual {
+  position: relative;
+  min-height: 220px;
+  background: var(--cloud-50);
+}
+.dottedImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Media banner (legacy) */
+.media {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  border-radius: 4px;
+  background: var(--cloud-100);
+  display: block;
+}
+.mediaImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform .8s var(--ease);
+}
+.media:hover .mediaImg { transform: scale(1.05); }
+
+.mediaOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.7) 42%, rgba(255, 255, 255, 0) 72%);
+}
+.mediaOverlay .eyebrow { color: var(--cloud-600); }
+
+.mediaTitle {
+  font-size: clamp(1.7rem, 4.6vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 22px;
+}
+
+.mediaCta {
+  align-self: flex-start;
+  padding: 12px 26px;
+  border: 1px solid var(--dark);
+  color: var(--dark);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background .3s var(--ease), color .3s var(--ease);
+}
+.media:hover .mediaCta { background: var(--dark); color: #fff; }
+
+@media (min-width: 900px) {
+  .section { padding: 32px 48px 96px; }
+  .grid { grid-template-columns: 0.82fr 1.18fr; gap: 24px; }
+  .plain { min-height: 340px; }
+  .dotted {
+    grid-template-columns: 1fr 0.9fr;
+    min-height: 340px;
+  }
+  .dottedVisual { min-height: auto; }
+  .media { min-height: 340px; }
+}

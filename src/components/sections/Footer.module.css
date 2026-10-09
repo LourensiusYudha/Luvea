@@ -1,7 +1,8 @@
 .footer {
-  background: var(--dark);
-  color: rgba(255,255,255,.55);
+  background: var(--white);
+  color: var(--mid);
   padding: 48px 24px 0;
+  border-top: 1px solid var(--cloud-200);
 }
 
 .inner {
@@ -32,20 +33,45 @@
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--dark);
   letter-spacing: 0.01em;
 }
 
 .tagline {
   font-size: .8rem;
-  color: rgba(255,255,255,.65);
+  color: var(--mid);
   line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contactList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .82rem;
+}
+.contactList a {
+  color: var(--mid);
+  transition: color .2s;
+}
+.contactList a:hover { color: var(--dark); }
+.contactIcon {
+  width: 18px;
+  text-align: center;
+  color: var(--cloud-400);
+  font-size: .78rem;
+  flex-shrink: 0;
 }
 
 .colTitle {
   font-size: .78rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--dark);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 4px;
@@ -59,12 +85,12 @@
 
 .colLinks a {
   font-size: .82rem;
-  color: rgba(255,255,255,.72);
+  color: var(--mid);
   transition: color .2s;
 }
 
 .colLinks a:hover {
-  color: var(--cloud-300);
+  color: var(--dark);
 }
 
 .social {
@@ -79,23 +105,23 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
+  border: 1px solid var(--cloud-200);
+  background: var(--cream);
   text-decoration: none;
-  transition: transform .3s var(--ease), filter .3s var(--ease);
-  color: #fff;
+  transition: transform .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
+  color: var(--dark);
 }
 
 .socialLink:hover {
   transform: translateY(-3px);
-  filter: brightness(1.05);
+  border-color: var(--dark);
+  background: var(--white);
 }
 
-.shopee { background: var(--shopee); }
-.wa { background: var(--wa); }
-.tiktok { background: var(--tiktok); }
-.tiktok img { filter: brightness(0) invert(1); }
+.tiktok img { filter: brightness(0) saturate(100%); }
 
 .bottom {
-  border-top: 1px solid rgba(255,255,255,.1);
+  border-top: 1px solid var(--cloud-200);
   margin-top: 40px;
   padding: 20px 0;
   text-align: center;
@@ -103,7 +129,7 @@
 
 .copy {
   font-size: .75rem;
-  color: rgba(255,255,255,.58);
+  color: var(--light);
 }
 
 @media (min-width: 580px) {

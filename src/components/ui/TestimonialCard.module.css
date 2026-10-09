@@ -13,9 +13,9 @@
 .top {
   display: flex; align-items: center; justify-content: space-between;
 }
-.starsFull { color: #FAAD14; letter-spacing: 1px; font-size: .95rem; }
-.stars4 { color: #FAAD14; font-size: .95rem; }
-.starEmpty { color: #ddd; }
+.starsFull { color: var(--rating); letter-spacing: 1px; font-size: .95rem; }
+.stars4 { color: var(--rating); font-size: .95rem; }
+.starEmpty { color: var(--cloud-200); }
 .verified {
   font-size: .7rem; font-weight: 600; color: var(--dark);
   background: var(--pink-100); padding: 3px 10px; border-radius: 0px;

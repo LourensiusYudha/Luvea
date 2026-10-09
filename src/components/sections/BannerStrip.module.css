@@ -1,29 +1,30 @@
 .strip {
   width: 100%;
   overflow: hidden;
-  background: #e50012;
-  color: #fff;
+  background: var(--beige);
+  color: #000;
   height: var(--topbar-h);
   display: flex;
   align-items: center;
   position: relative;
+  border-bottom: 1px solid var(--cloud-200);
 }
 
 .track {
   display: flex;
   gap: 64px;
   white-space: nowrap;
-  animation: scroll 24s linear infinite;
+  animation: scroll 28s linear infinite;
   padding-left: 24px;
 }
 
 .item {
   font-family: var(--font-body);
   font-size: .78rem;
-  font-weight: 500;
-  letter-spacing: .16em;
+  font-weight: 600;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  color: #fff;
+  color: #000;
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -31,8 +32,10 @@
 
 .item::after {
   content: '';
-  width: 4px; height: 4px; border-radius: 50%;
-  background: rgba(255, 255, 255, 0.45);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--cloud-300);
   margin-left: 12px;
 }
 
@@ -42,11 +45,14 @@
 }
 
 @media (max-width: 639px) {
-  .strip {
-    height: 40px;
-  }
+  .strip { height: 40px; }
   .item {
     font-size: .75rem;
-    letter-spacing: .12em;
+    letter-spacing: .1em;
   }
+  .track { gap: 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; }
 }
