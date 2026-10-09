@@ -80,7 +80,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: 290;
+  z-index: 1000; /* di atas WaFloat (999) dan StickyCta (998) */
   background: rgba(26, 26, 26, .42);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -93,7 +93,7 @@
 .drawer {
   position: fixed;
   inset: 0;
-  z-index: 300;
+  z-index: 1001;
   width: 100%;
   min-height: 100dvh;
   background:

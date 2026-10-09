@@ -11,11 +11,8 @@
 .waFloat:hover { transform: translateY(-3px); background: var(--wa-hover); }
 .waFloat img { filter: brightness(0) invert(1); }
 
+/* Mobile: sticky CTA bar sudah punya tombol WhatsApp; float di sini
+   hanya menutupi tombol "Belanja" di kartu produk dan menu. */
 @media (max-width: 639px) {
-  .waFloat {
-    bottom: 80px; right: 16px;
-    padding: 13px;
-    border-radius: 50%;
-  }
-  .waFloat span { display: none; }
+  .waFloat { display: none; }
 }
