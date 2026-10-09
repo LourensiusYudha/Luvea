@@ -29,9 +29,10 @@ export const STATS = {
   reviews: '3.200+',
 } as const;
 
-// Toggle synthetic/urgency elements. The fabricated purchase popup is disabled
-// by default because random names are not real transactions; re-enable only
-// when wired to real order data.
+// Toggle synthetic/urgency elements. All three are off: the popup uses random
+// names, the scarcity counter is computed from a daily seed + time of day, and
+// the countdown restarts per visitor, so none reflect real orders or a real
+// promo end date. Re-enable only when wired to real order data / a fixed date.
 interface FeatureFlags {
   socialProofPopup: boolean;
   scarcityCounter: boolean;
@@ -42,8 +43,8 @@ interface FeatureFlags {
 
 export const FEATURES: FeatureFlags = {
   socialProofPopup: false,
-  scarcityCounter: true,
-  promoCountdown: true,
+  scarcityCounter: false,
+  promoCountdown: false,
   shopeeEnabled: false,
 };
 
