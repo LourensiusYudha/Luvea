@@ -28,7 +28,7 @@ export default function PromoBanners() {
           className={`${styles.dotted} reveal-card`}
         >
           <div className={styles.dottedCopy}>
-            <span className={styles.eyebrow}>Best Seller</span>
+            <span className={styles.eyebrow}>Koleksi Terbaru</span>
             <h3 className={styles.dottedTitle}>Midnight Bloom</h3>
             <p className={styles.dottedSub}>Gratis ongkir ke seluruh Indonesia lewat TikTok Shop.</p>
             <span className={styles.coupon}>GRATIS ONGKIR</span>
