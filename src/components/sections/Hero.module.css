@@ -264,6 +264,19 @@
   .reveal, .pillIn, .visual { animation: none; }
 }
 
+/* Mobile/tablet: product photo leads the first viewport; the watermark
+   would sit behind the headline here, so it only shows on desktop. */
+@media (max-width: 899px) {
+  .watermark { display: none; }
+  .inner { gap: 20px; }
+  .visual { order: -1; max-width: 340px; }
+  .heroImg { max-height: 36svh; width: auto; margin: 0 auto; }
+  .shippingBadge { top: 6%; }
+  .title { font-size: clamp(2.1rem, 9vw, 3.4rem); }
+  .trustStrip { display: none; }
+  .exploreLink { margin-bottom: 20px; }
+}
+
 @media (min-width: 640px) {
   .inner { padding: 16px 32px 64px; gap: 36px; }
 }
