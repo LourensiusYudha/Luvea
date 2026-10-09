@@ -161,7 +161,7 @@
   line-height: 1;
 }
 
-.iconBad { color: #9a948c; }
+.iconBad { color: var(--cloud-400); }
 .iconGood { color: var(--dark); }
 
 .table thead .colLuvea { color: var(--dark); }

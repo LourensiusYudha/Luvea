@@ -10,7 +10,7 @@
   --cloud-100: #ebe5dc;
   --cloud-200: #ddd6cb;
   --cloud-300: #c9c0b4;
-  --cloud-400: #9a948c;
+  --cloud-400: #716b63; /* AA: 5.3:1 on white, 4.6:1 on beige */
   --cloud-500: #6b6560;
   --cloud-600: #4a4640;
   --cloud-700: #2e2b27;
@@ -48,13 +48,13 @@
   --white: #ffffff;
   --dark: #1a1a1a;
   --mid: #6b6560;
-  --light: #9a948c;
+  --light: var(--cloud-400);
 
   /* Marketplace brand colors */
   --shopee: #ee4d2d;
   --shopee-hover: #d73211;
-  --wa: #25d366;
-  --wa-hover: #1da851;
+  --wa: #15803d; /* AA with white text (5.0:1); #25d366 was 2:1 */
+  --wa-hover: #116b33;
   --tiktok: #1a1a1a;
   --tiktok-hover: #2e2b27;
 
