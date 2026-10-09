@@ -31,9 +31,9 @@ export default function Home() {
           <FeatureStrip />
           <ProblemAwareness />
           <ProductsSection />
+          <SizeGuide />
           <PromoBanners />
           <Testimonials testimonials={testimonials} featuredId={3} />
-          <SizeGuide />
           <Advantages />
           <FaqSection />
           <FinalCta />
