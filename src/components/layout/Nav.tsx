@@ -12,8 +12,8 @@ const Nav = memo(function Nav() {
   const links = [
     { href: '#produk', label: 'Produk' },
     { href: '#ukuran', label: 'Ukuran' },
-    { href: '#keunggulan', label: 'Keunggulan' },
     { href: '#testimoni', label: 'Ulasan' },
+    { href: '#keunggulan', label: 'Keunggulan' },
     { href: '#faq', label: 'FAQ' },
   ];
 
