@@ -10,6 +10,9 @@ export function useCarousel(totalSlides: number, intervalMs: number = 4500) {
   const [enableTransition, setEnableTransition] = useState(true);
   const [dragOffset, setDragOffset] = useState(0);
   const isPaused = useRef(false);
+  // Sekali pengunjung menggeser atau memilih dot, autoplay berhenti for good:
+  // ulasan tidak boleh bergeser saat sedang dibaca.
+  const userTookControl = useRef(false);
   const isDragging = useRef(false);
   const dragStart = useRef({ x: 0, index: 1 });
   const indexRef = useRef(index);
@@ -34,6 +37,7 @@ export function useCarousel(totalSlides: number, intervalMs: number = 4500) {
   }, []);
 
   const goTo = useCallback((realIdx: number) => {
+    userTookControl.current = true;
     setEnableTransition(true);
     setDragOffset(0);
     setIndex(realIdx + 1);
@@ -59,8 +63,9 @@ export function useCarousel(totalSlides: number, intervalMs: number = 4500) {
   }, [enableTransition]);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const id = setInterval(() => {
-      if (isPaused.current || isDragging.current) return;
+      if (isPaused.current || isDragging.current || userTookControl.current) return;
       setEnableTransition(true);
       setDragOffset(0);
       setIndex((prev) => prev + 1);
@@ -90,6 +95,7 @@ export function useCarousel(totalSlides: number, intervalMs: number = 4500) {
       const x = 'touches' in e ? e.touches[0].clientX : e.clientX;
       isDragging.current = true;
       isPaused.current = true;
+      userTookControl.current = true;
       dragStart.current = { x, index: indexRef.current };
       setEnableTransition(false);
       setDragOffset(0);
