@@ -31,6 +31,7 @@
 }
 .tiktok:active { background: var(--cloud-50); }
 .primary { flex: 1.35; font-weight: 700; }
+.visible { transform: translateY(0); }
 .wa { background: var(--wa); flex: 0.85; }
 .wa:active { background: var(--wa-hover); }
 @media (max-width: 639px) {

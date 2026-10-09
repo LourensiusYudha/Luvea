@@ -132,6 +132,11 @@
   color: var(--light);
 }
 
+/* Ruang untuk sticky CTA mobile supaya copyright tidak tertutup */
+@media (max-width: 639px) {
+  .bottom { padding-bottom: calc(92px + env(safe-area-inset-bottom)); }
+}
+
 @media (min-width: 580px) {
   .inner {
     grid-template-columns: repeat(2, 1fr);
