@@ -13,12 +13,12 @@ export const faqItems: FaqItem[] = [
   {
     id: 2,
     question: 'Apakah bisa COD?',
-    answer: 'Untuk saat ini pesan via TikTok Shop atau WhatsApp. Detail pembayaran dan pengiriman dikonfirmasi lewat chat admin.',
+    answer: 'Bisa. Pilih metode bayar COD saat checkout di TikTok Shop. Untuk pesanan lewat WhatsApp, metode pembayaran dikonfirmasi admin.',
   },
   {
     id: 3,
     question: 'Kapan barang dikirim?',
-    answer: 'Pesanan diproses 1x24 jam di hari kerja. Order sebelum jam tertentu biasanya diproses di hari yang sama.',
+    answer: 'Pesanan diproses 1x24 jam di hari kerja.',
   },
   {
     id: 4,
