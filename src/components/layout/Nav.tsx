@@ -54,6 +54,16 @@ const Nav = memo(function Nav() {
           ))}
         </ul>
 
+        {/* Desktop: satu jalan ke toko yang selalu terlihat setelah hero lewat */}
+        <a
+          href={tiktokLink({ medium: 'nav', campaign: 'tiktok' })}
+          target="_blank"
+          rel="noopener"
+          className={styles.navCta}
+        >
+          Belanja di TikTok Shop
+        </a>
+
         <button
           className={`${styles.burger} ${open ? styles.open : ''}`}
           onClick={toggle}

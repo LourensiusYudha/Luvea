@@ -215,8 +215,25 @@
   box-shadow: var(--shadow-md);
 }
 
+.navCta { display: none; }
+
 @media (min-width: 900px) {
   .nav { padding: 0 40px; }
+  .navCta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 22px;
+    border-radius: var(--radius-pill);
+    background: var(--dark);
+    color: var(--white);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    transition: background .3s var(--ease);
+  }
+  .navCta:hover { background: var(--cloud-700); }
+  .navCta:focus-visible { outline: 2px solid var(--cloud-400); outline-offset: 3px; }
   .links {
     display: flex;
     position: absolute;
@@ -228,4 +245,9 @@
   .overlay {
     display: none;
   }
+}
+
+/* 900-1099px: rapatkan link supaya tidak menempel ke tombol */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .links { gap: 20px; }
 }
