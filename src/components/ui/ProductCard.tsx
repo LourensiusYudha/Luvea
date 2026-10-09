@@ -54,7 +54,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           aria-label={`Belanja ${product.name} di TikTok Shop`}
         >
           <ChannelIcon src="/images/tiktok.png" />
-          {product.featured ? 'Belanja Sekarang' : 'Belanja di TikTok Shop'}
+          Belanja di TikTok Shop
         </a>
         <div className={styles.altChannels}>
           <a

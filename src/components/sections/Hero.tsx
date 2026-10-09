@@ -35,12 +35,12 @@ export default function Hero() {
               target="_blank"
               rel="noopener"
               className={`${styles.cta} ${styles.ctaPrimary}`}
-              aria-label="Lihat Koleksi di TikTok"
+              aria-label="Belanja di TikTok Shop"
             >
               <span className={styles.ctaIcon} aria-hidden="true">
                 <Image src="/images/tiktok.png" alt="" width={18} height={18} />
               </span>
-              <span className={styles.ctaText}>Lihat Koleksi di TikTok</span>
+              <span className={styles.ctaText}>Belanja di TikTok Shop</span>
             </a>
             <a
               href={waLink(WA_MESSAGES.order)}

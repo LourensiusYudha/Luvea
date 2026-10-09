@@ -18,7 +18,7 @@ export default function PromoBanners() {
             Diskon Launching<br /><em>Terbatas</em>
           </h3>
           <p className={styles.plainSub}>Untuk santai di rumah sampai menyambut tamu.</p>
-          <span className={styles.plainCta}>Belanja Sekarang</span>
+          <span className={styles.plainCta}>Belanja di TikTok Shop</span>
         </a>
 
         <a
@@ -31,7 +31,7 @@ export default function PromoBanners() {
             <span className={styles.eyebrow}>Koleksi Terbaru</span>
             <h3 className={styles.dottedTitle}>Midnight Bloom</h3>
             <p className={styles.dottedSub}>Gratis ongkir ke seluruh Indonesia lewat TikTok Shop.</p>
-            <span className={styles.coupon}>GRATIS ONGKIR</span>
+            <span className={styles.plainCta}>Belanja Midnight Bloom</span>
           </div>
           <div className={styles.dottedVisual}>
             <Image

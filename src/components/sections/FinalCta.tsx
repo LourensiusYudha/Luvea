@@ -21,7 +21,7 @@ export default function FinalCta() {
           className={`btn btn-dark btn--rect ${styles.cta}`}
           aria-label="Belanja di TikTok Shop"
         >
-          Belanja Sekarang
+          Belanja di TikTok Shop
         </a>
       </div>
     </section>
