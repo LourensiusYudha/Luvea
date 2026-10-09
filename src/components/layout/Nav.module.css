@@ -62,8 +62,13 @@
 .burger {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
+  min-width: 44px;
+  min-height: 44px;
   padding: 8px;
+  margin-right: -8px;
   -webkit-tap-highlight-color: transparent;
 }
 .burger span {
