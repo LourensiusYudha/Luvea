@@ -57,6 +57,9 @@ export default function ProductCard({ product }: ProductCardProps) {
           Belanja di TikTok Shop
         </a>
         <div className={styles.altChannels}>
+          <a href="#ukuran" className={styles.sizeLink}>
+            Panduan ukuran
+          </a>
           <a
             href={productOrderLink(product.name)}
             target="_blank"

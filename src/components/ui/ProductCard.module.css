@@ -103,12 +103,24 @@
 .altChannels {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px;
   margin-top: 14px;
-  padding-top: 14px;
+  padding-top: 4px;
   border-top: 1px solid var(--cloud-100);
 }
+.altChannels a { min-height: 44px; }
+.sizeLink {
+  display: inline-flex;
+  align-items: center;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--mid);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sizeLink:hover { color: var(--dark); }
 .tiktokLink {
   display: inline-flex;
   align-items: center;
