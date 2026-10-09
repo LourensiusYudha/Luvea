@@ -61,8 +61,12 @@
 .tip a { color: var(--dark); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
 .tip a:hover { text-decoration: underline; }
 
+/* Tetap 3 kolom di mobile: 3 ukuran di grid 2 kolom menyisakan kartu yatim */
 @media (max-width: 639px) {
-  .cards { grid-template-columns: 1fr 1fr; }
+  .cards { gap: 8px; }
+  .card { padding: 16px 10px; }
+  .label { font-size: 1.8rem; }
+  .badge { padding: 3px 6px; letter-spacing: .06em; }
 }
 @media (min-width: 900px) {
   .section { padding: 120px 48px; }
