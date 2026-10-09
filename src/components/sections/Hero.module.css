@@ -291,7 +291,9 @@
     gap: 40px;
     max-width: 1320px;
   }
-  .content { text-align: left; max-width: 480px; flex: 0 1 42%; }
+  .content { text-align: left; max-width: 600px; flex: 0 0 46%; }
+  /* "Adem sepanjang hari," harus muat 1 baris: lebar teks = 8.7 x font-size */
+  .title { font-size: clamp(2.6rem, 4.6vw, 4.1rem); text-wrap: balance; }
   .tagline { margin-left: 0; }
   .exploreLink { margin-left: 0; }
   .ctas { justify-content: flex-start; }
