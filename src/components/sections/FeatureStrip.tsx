@@ -56,7 +56,7 @@ export default function FeatureStrip() {
           <div key={f.title} className={`${styles.item} reveal-card`}>
             <span className={styles.icon} aria-hidden="true">{f.icon}</span>
             <div className={styles.text}>
-              <h3>{f.title}</h3>
+              <p className={styles.title}>{f.title}</p>
               <p>{f.desc}</p>
             </div>
           </div>
