@@ -19,6 +19,15 @@ export function useNav() {
   const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
+    if (!open) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') setOpen(false);
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
+  useEffect(() => {
     const lenis = getLenis();
     if (open) {
       lenis?.stop();
